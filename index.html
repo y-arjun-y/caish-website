@@ -487,7 +487,7 @@
                 <li><a href="/mars">MARS</a></li>
                 <li><a href="/membership">Membership</a></li>
             </ul>
-            <button class="nav-toggle" aria-label="Open menu" onclick="document.getElementById('mobile-nav').classList.add('active')">
+            <button class="nav-toggle" aria-label="Open menu" id="nav-toggle">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -497,15 +497,65 @@
 
     <!-- Mobile Navigation Overlay -->
     <div id="mobile-nav" class="mobile-nav">
-        <button class="mobile-nav-close" aria-label="Close menu" onclick="document.getElementById('mobile-nav').classList.remove('active')">&times;</button>
+        <button class="mobile-nav-close" aria-label="Close menu" id="mobile-nav-close">&times;</button>
         <ul>
-            <li><a href="/about" onclick="document.getElementById('mobile-nav').classList.remove('active')">About</a></li>
-            <li><a href="/fellowship" onclick="document.getElementById('mobile-nav').classList.remove('active')">Alignment Fellowship</a></li>
-            <li><a href="/socials" onclick="document.getElementById('mobile-nav').classList.remove('active')">Socials</a></li>
-            <li><a href="/mars" onclick="document.getElementById('mobile-nav').classList.remove('active')">MARS</a></li>
-            <li><a href="/membership" onclick="document.getElementById('mobile-nav').classList.remove('active')">Membership</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/fellowship">Alignment Fellowship</a></li>
+            <li><a href="/socials">Socials</a></li>
+            <li><a href="/mars">MARS</a></li>
+            <li><a href="/membership">Membership</a></li>
         </ul>
     </div>
+
+    <script>
+        // Mobile Navigation Controller
+        const MobileNav = {
+            nav: null,
+
+            init() {
+                this.nav = document.getElementById('mobile-nav');
+                this.attachEventListeners();
+            },
+
+            open() {
+                if (this.nav) {
+                    this.nav.classList.add('active');
+                }
+            },
+
+            close() {
+                if (this.nav) {
+                    this.nav.classList.remove('active');
+                }
+            },
+
+            attachEventListeners() {
+                const toggleBtn = document.getElementById('nav-toggle');
+                const closeBtn = document.getElementById('mobile-nav-close');
+                const navLinks = this.nav?.querySelectorAll('a');
+
+                if (toggleBtn) {
+                    toggleBtn.addEventListener('click', () => this.open());
+                }
+
+                if (closeBtn) {
+                    closeBtn.addEventListener('click', () => this.close());
+                }
+
+                // Close nav when clicking any link
+                navLinks?.forEach(link => {
+                    link.addEventListener('click', () => this.close());
+                });
+            }
+        };
+
+        // Initialize when DOM is ready
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', () => MobileNav.init());
+        } else {
+            MobileNav.init();
+        }
+    </script>
 
     <section class="hero">
         <div class="hero-content">
