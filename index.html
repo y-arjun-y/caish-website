@@ -1,653 +1,166 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Cambridge AI Safety Hub - Bringing together students and professionals to reduce existential risks from superintelligent AI systems.">
-    <title>Cambridge AI Safety Hub</title>
-    
-    <link rel="icon" type="image/png" href="images/favicon.png">
-    <link rel="apple-touch-icon" href="apple-touch-icon.png">
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Space+Mono:wght@400&display=swap" rel="stylesheet">
-    
-    <style>
-        /* ========== Variables ========== */
-        :root {
-            --black: #1a1a1a;
-            --dark-grey: #4a4a4a;
-            --mid-grey: #8a8a8a;
-            --light-grey: #e0e0e0;
-            --off-white: #f8f7f4;
-            --cream: #f4f3ef;
-            --white: #fefefe;
-            --max-width: 1000px;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Cambridge AI Safety Hub - Bringing together students and professionals to reduce existential risks from superintelligent AI systems.">
+  <title>Cambridge AI Safety Hub</title>
 
-        /* ========== Reset ========== */
-        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-        
-        /* ========== Base ========== */
-        html { font-size: 16px; scroll-behavior: smooth; }
-        
-        body {
-            font-family: 'Space Mono', monospace;
-            font-weight: 400;
-            background: var(--off-white);
-            color: var(--black);
-            line-height: 1.8;
-            letter-spacing: -0.01em;
-            position: relative;
-        }
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="images/favicon.png">
+  <link rel="apple-touch-icon" href="images/favicon.png">
 
-        /* Subtle paper grain texture */
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%' height='100%' filter='url(%23noise)'/%3E%3C/svg%3E");
-            opacity: 0.03;
-            pointer-events: none;
-            z-index: 1000;
-        }
+  <!-- Preload critical resources -->
+  <link rel="preload" href="styles.css" as="style">
+  <link rel="preload" href="images/logo.png" as="image">
 
-        /* ========== Typography ========== */
-        h1, h2, h3 {
-            font-family: 'Libre Baskerville', Georgia, serif;
-            font-weight: 400;
-            letter-spacing: -0.02em;
-        }
-        h1 { 
-            font-size: clamp(2.4rem, 5.5vw, 3.8rem); 
-            line-height: 1.2; 
-        }
-        h2 { 
-            font-size: clamp(1.4rem, 2.8vw, 1.85rem); 
-            line-height: 1.35; 
-        }
-        h3 { 
-            font-size: 1.05rem; 
-            line-height: 1.4;
-        }
-        p { 
-            font-size: 0.88rem; 
-            max-width: 52ch; 
-            color: var(--dark-grey);
-        }
-        a { color: inherit; text-decoration: none; }
-        em { font-style: italic; }
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Space+Mono:wght@400&display=swap" rel="stylesheet">
 
-        /* ========== Utilities ========== */
-        .label {
-            font-size: 0.6rem;
-            letter-spacing: 0.25em;
-            text-transform: uppercase;
-            color: var(--mid-grey);
-            margin-bottom: 1.5rem;
-            display: block;
-        }
-
-        /* ========== Navigation ========== */
-        nav {
-            position: fixed;
-            top: 0; left: 0; right: 0;
-            z-index: 100;
-            background: var(--off-white);
-            border-bottom: 1px solid var(--light-grey);
-        }
-        .nav-inner {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 2.5rem;
-            max-width: var(--max-width);
-            margin: 0 auto;
-        }
-        .logo { height: 32px; opacity: 0.9; }
-        .nav-links {
-            display: flex;
-            gap: 2.5rem;
-            list-style: none;
-        }
-        .nav-links a {
-            font-size: 0.75rem;
-            letter-spacing: 0.03em;
-            color: var(--dark-grey);
-            transition: color 0.2s;
-        }
-        .nav-links a:hover { color: var(--black); }
-
-        /* ========== Sections ========== */
-        section {
-            max-width: var(--max-width);
-            margin: 0 auto;
-            padding: 0 2.5rem;
-        }
-
-        /* ========== Hero ========== */
-        .hero {
-            padding-top: 9rem;
-            padding-bottom: 5rem;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
-        }
-        .hero-content {}
-        .hero h1 { 
-            margin-bottom: 1.75rem; 
-            max-width: 14ch;
-        }
-        .hero h1 em {
-            display: block;
-        }
-        .hero p { 
-            max-width: 44ch;
-            font-size: 0.9rem;
-        }
-        .hero-image {
-            display: flex;
-            align-items: center;
-            justify-content: flex-end;
-        }
-        .hero-image img {
-            width: 100%;
-            height: auto;
-            max-height: 400px;
-            object-fit: contain;
-        }
-
-        /* ========== Divider ========== */
-        .divider {
-            max-width: var(--max-width);
-            margin: 0 auto;
-            padding: 0 2.5rem;
-        }
-        .divider-line {
-            height: 1px;
-            background: var(--light-grey);
-        }
-
-        /* ========== Mission ========== */
-        .mission {
-            padding-top: 5rem;
-            padding-bottom: 5rem;
-            display: grid;
-            grid-template-columns: 1fr 1.2fr;
-            gap: 4rem;
-        }
-        .mission-text h2 {
-            margin-bottom: 1.5rem;
-            max-width: 18ch;
-        }
-        .mission-text p {
-            margin-bottom: 1rem;
-        }
-        .mission-image {
-            display: flex;
-            align-items: flex-start;
-            justify-content: flex-end;
-        }
-        .mission-image img {
-            width: 100%;
-            height: auto;
-            max-height: 350px;
-            object-fit: contain;
-        }
-
-        /* ========== Initiatives ========== */
-        .initiatives {
-            padding-top: 5rem;
-            padding-bottom: 5rem;
-        }
-        .initiatives h2 {
-            margin-bottom: 3rem;
-        }
-        .initiatives-list {
-            display: flex;
-            flex-direction: column;
-        }
-        .initiative-item {
-            display: grid;
-            grid-template-columns: 2.5rem 1fr;
-            gap: 2rem;
-            padding: 1.75rem 0;
-            border-top: 1px solid var(--light-grey);
-        }
-        .initiative-item:last-child {
-            border-bottom: 1px solid var(--light-grey);
-        }
-        .initiative-num {
-            font-size: 0.7rem;
-            color: var(--mid-grey);
-            padding-top: 0.2rem;
-        }
-        .initiative-content h3 {
-            margin-bottom: 0.5rem;
-        }
-        .initiative-content p {
-            font-size: 0.85rem;
-            max-width: none;
-        }
-
-        /* ========== Events ========== */
-        .events {
-            padding-top: 5rem;
-            padding-bottom: 5rem;
-        }
-        .events-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-end;
-            margin-bottom: 2rem;
-        }
-        .events-header h2 {
-            margin-bottom: 0;
-        }
-        .events-link {
-            font-size: 0.7rem;
-            color: var(--mid-grey);
-            border-bottom: 1px solid var(--light-grey);
-            padding-bottom: 2px;
-            transition: all 0.2s;
-        }
-        .events-link:hover {
-            color: var(--black);
-            border-color: var(--black);
-        }
-        .events-empty {
-            padding: 2.5rem 0;
-            border-top: 1px solid var(--light-grey);
-            border-bottom: 1px solid var(--light-grey);
-            color: var(--mid-grey);
-            font-size: 0.8rem;
-            font-style: italic;
-            font-family: 'Libre Baskerville', serif;
-        }
-
-        /* ========== CTA ========== */
-        .cta {
-            background: var(--black);
-            color: var(--white);
-            padding: 5rem 2.5rem;
-            max-width: none;
-        }
-        .cta-inner {
-            max-width: var(--max-width);
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-        .cta .label { 
-            color: var(--mid-grey); 
-        }
-        .cta h2 { 
-            color: var(--cream);
-            margin-bottom: 1.25rem;
-        }
-        .cta p { 
-            color: #a0a0a0;
-            margin-bottom: 2rem;
-        }
-        .cta-btn {
-            display: inline-block;
-            padding: 0.8rem 1.6rem;
-            font-family: 'Space Mono', monospace;
-            font-size: 0.68rem;
-            letter-spacing: 0.06em;
-            text-transform: uppercase;
-            background: var(--cream);
-            color: var(--black);
-            border: none;
-            cursor: pointer;
-            transition: opacity 0.2s;
-        }
-        .cta-btn:hover { opacity: 0.85; }
-        .cta-image {
-            display: flex;
-            justify-content: flex-end;
-            align-items: center;
-        }
-        .cta-image img {
-            width: 100%;
-            max-width: 280px;
-            height: auto;
-            max-height: 280px;
-            object-fit: contain;
-            opacity: 0.15;
-        }
-        /* ========== Easter Egg ========== */
-        .easter-egg {
-            display: inline-flex;
-            align-items: center;
-            gap: 1rem;
-        }
-        .easter-egg-img {
-            width: 50px;
-            height: 50px;
-            object-fit: cover;
-            border-radius: 50%;
-        }
-
-        /* ========== Footer ========== */
-        footer {
-            padding: 2.5rem;
-            max-width: var(--max-width);
-            margin: 0 auto;
-        }
-        .footer-inner {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            gap: 3rem;
-        }
-        .footer-legal {
-            font-size: 0.68rem;
-            color: var(--mid-grey);
-            line-height: 1.7;
-            max-width: 50ch;
-        }
-        .footer-legal a {
-            border-bottom: 1px solid var(--light-grey);
-        }
-        .footer-legal a:hover {
-            color: var(--black);
-        }
-        .footer-copy {
-            font-size: 0.68rem;
-            color: var(--mid-grey);
-            white-space: nowrap;
-        }
-
-        /* ========== Mobile Navigation ========== */
-        .nav-toggle {
-            display: none;
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 0.5rem;
-        }
-        .nav-toggle span {
-            display: block;
-            width: 24px;
-            height: 2px;
-            background: var(--black);
-            margin: 5px 0;
-            transition: all 0.3s;
-        }
-        .mobile-nav {
-            display: none;
-            position: fixed;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: var(--off-white);
-            z-index: 200;
-            padding: 6rem 2.5rem;
-        }
-        .mobile-nav.active {
-            display: block;
-        }
-        .mobile-nav-close {
-            position: absolute;
-            top: 1rem;
-            right: 1.5rem;
-            background: none;
-            border: none;
-            font-size: 2rem;
-            cursor: pointer;
-            color: var(--black);
-            line-height: 1;
-        }
-        .mobile-nav ul {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-        }
-        .mobile-nav a {
-            font-family: 'Libre Baskerville', serif;
-            font-size: 1.5rem;
-            color: var(--black);
-        }
-        .mobile-nav a:hover {
-            opacity: 0.6;
-        }
-
-        /* ========== Responsive ========== */
-        @media (max-width: 800px) {
-            .hero,
-            .mission,
-            .cta-inner { 
-                grid-template-columns: 1fr; 
-                gap: 2rem; 
-            }
-            .hero-image,
-            .mission-image,
-            .cta-image { 
-                justify-content: center;
-            }
-            .hero-image img,
-            .mission-image img {
-                max-height: 250px;
-            }
-            .cta-image img {
-                max-width: 180px;
-                max-height: 180px;
-            }
-            .initiative-item {
-                grid-template-columns: 1fr;
-                gap: 0.5rem;
-            }
-            .footer-inner {
-                flex-direction: column;
-                gap: 1rem;
-            }
-        }
-        @media (max-width: 600px) {
-            .nav-links { display: none; }
-            .nav-toggle { display: block; }
-            .hero { padding-top: 6rem; padding-bottom: 3rem; }
-            section { padding-left: 1.5rem; padding-right: 1.5rem; }
-            .divider { padding-left: 1.5rem; padding-right: 1.5rem; }
-            .cta { padding-left: 1.5rem; padding-right: 1.5rem; }
-            footer { padding: 2rem 1.5rem; }
-            .hero-image,
-            .mission-image {
-                justify-content: center;
-            }
-            .hero-image img,
-            .mission-image img {
-                max-height: 220px;
-                opacity: 1;
-            }
-            .cta-image {
-                justify-content: center;
-            }
-            .cta-image img {
-                max-width: 150px;
-                max-height: 150px;
-                opacity: 0.25;
-            }
-        }
-    </style>
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <nav>
-        <div class="nav-inner">
-            <a href="/" aria-label="Home">
-                <img src="images/logo.png" alt="CAISH" class="logo">
-            </a>
-            <ul class="nav-links">
-                <li><a href="/about">About</a></li>
-                <li><a href="/fellowship">Alignment Fellowship</a></li>
-                <li><a href="/socials">Socials</a></li>
-                <li><a href="/mars">MARS</a></li>
-                <li><a href="/membership">Membership</a></li>
-            </ul>
-            <button class="nav-toggle" aria-label="Open menu" id="nav-toggle">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-        </div>
-    </nav>
-
-    <!-- Mobile Navigation Overlay -->
-    <div id="mobile-nav" class="mobile-nav">
-        <button class="mobile-nav-close" aria-label="Close menu" id="mobile-nav-close">&times;</button>
-        <ul>
-            <li><a href="/about">About</a></li>
-            <li><a href="/fellowship">Alignment Fellowship</a></li>
-            <li><a href="/socials">Socials</a></li>
-            <li><a href="/mars">MARS</a></li>
-            <li><a href="/membership">Membership</a></li>
-        </ul>
+  <nav>
+    <div class="nav-inner">
+      <a href="/" aria-label="Home">
+        <img src="images/logo.png" alt="CAISH" class="logo" width="100" height="32">
+      </a>
+      <ul class="nav-links">
+        <li><a href="/about">About</a></li>
+        <li><a href="/fellowship">Alignment Fellowship</a></li>
+        <li><a href="/socials">Socials</a></li>
+        <li><a href="/mars">MARS</a></li>
+        <li><a href="/membership">Membership</a></li>
+      </ul>
+      <button class="nav-toggle" aria-label="Open menu" id="nav-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </div>
+  </nav>
 
-    <script>
-        // Mobile Navigation Controller
-        const MobileNav = {
-            nav: null,
+  <div id="mobile-nav" class="mobile-nav">
+    <button class="mobile-nav-close" aria-label="Close menu" id="mobile-nav-close">&times;</button>
+    <ul>
+      <li><a href="/about">About</a></li>
+      <li><a href="/fellowship">Alignment Fellowship</a></li>
+      <li><a href="/socials">Socials</a></li>
+      <li><a href="/mars">MARS</a></li>
+      <li><a href="/membership">Membership</a></li>
+    </ul>
+  </div>
 
-            init() {
-                this.nav = document.getElementById('mobile-nav');
-                this.attachEventListeners();
-            },
+  <section class="hero">
+    <div class="hero-content">
+      <span class="label">Cambridge AI Safety Hub</span>
+      <h1>Building the AI Safety Community in <em>Cambridge</em></h1>
+      <p>A hub bringing together students and professionals to reduce existential risks from superintelligent AI systems.</p>
+    </div>
+    <div class="hero-image">
+      <img src="images/lines.png" alt="Decorative geometric pattern" width="400" height="400">
+    </div>
+  </section>
 
-            open() {
-                if (this.nav) {
-                    this.nav.classList.add('active');
-                }
-            },
+  <div class="divider"><div class="divider-line"></div></div>
 
-            close() {
-                if (this.nav) {
-                    this.nav.classList.remove('active');
-                }
-            },
+  <section id="about" class="mission">
+    <div class="mission-text">
+      <span class="label">Our Mission</span>
+      <h2>Fostering rigorous thought on the safety of advanced AI</h2>
+      <p>We believe that the development of advanced artificial intelligence presents one of the most significant challenges of our time.</p>
+      <p>By bringing together the brightest minds in Cambridge, we aim to accelerate technical alignment research and promote thoughtful governance strategies.</p>
+    </div>
+    <div class="mission-image">
+      <img src="images/punting.png" alt="Punting on the River Cam" loading="lazy" width="400" height="350">
+    </div>
+  </section>
 
-            attachEventListeners() {
-                const toggleBtn = document.getElementById('nav-toggle');
-                const closeBtn = document.getElementById('mobile-nav-close');
-                const navLinks = this.nav?.querySelectorAll('a');
+  <div class="divider"><div class="divider-line"></div></div>
 
-                if (toggleBtn) {
-                    toggleBtn.addEventListener('click', () => this.open());
-                }
-
-                if (closeBtn) {
-                    closeBtn.addEventListener('click', () => this.close());
-                }
-
-                // Close nav when clicking any link
-                navLinks?.forEach(link => {
-                    link.addEventListener('click', () => this.close());
-                });
-            }
-        };
-
-        // Initialize when DOM is ready
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', () => MobileNav.init());
-        } else {
-            MobileNav.init();
-        }
-    </script>
-
-    <section class="hero">
-        <div class="hero-content">
-            <span class="label">Cambridge AI Safety Hub</span>
-            <h1>Building the AI Safety Community in <em>Cambridge</em></h1>
-            <p>A hub bringing together students and professionals to reduce existential risks from superintelligent AI systems.</p>
+  <section id="initiatives" class="initiatives">
+    <span class="label">What We Do</span>
+    <h2>Core Initiatives</h2>
+    <div class="initiatives-list">
+      <div class="initiative-item">
+        <span class="initiative-num">01</span>
+        <div class="initiative-content">
+          <h3>Alignment Fellowship</h3>
+          <p>Our reading groups introduce you to the core problems in AI safety, with two tracks: technical alignment and governance. Whether you're new to the field or deepening your expertise, this is where it starts.</p>
         </div>
-        <div class="hero-image">
-            <img src="images/lines.png" alt="Decorative lines">
+      </div>
+      <div class="initiative-item">
+        <span class="initiative-num">02</span>
+        <div class="initiative-content">
+          <h3>Mentorship for Alignment Research (MARS)</h3>
+          <p>A part-time research programme where you work in groups with mentors from organisations like Redwood Research, MIT AI Risk Initiative, Geodesic Research, and many more — with a two-week in-person kick-off.</p>
         </div>
-    </section>
-
-    <div class="divider"><div class="divider-line"></div></div>
-
-    <section id="about" class="mission">
-        <div class="mission-text">
-            <span class="label">Our Mission</span>
-            <h2>Fostering rigorous thought on the safety of advanced AI</h2>
-            <p>We believe that the development of advanced artificial intelligence presents one of the most significant challenges of our time.</p>
-            <p>By bringing together the brightest minds in Cambridge, we aim to accelerate technical alignment research and promote thoughtful governance strategies.</p>
+      </div>
+      <div class="initiative-item">
+        <span class="initiative-num">03</span>
+        <div class="initiative-content">
+          <h3>Socials & Community</h3>
+          <p>Weekly socials to help you find companions as you tackle these challenges together. We also run hackathons, retreats, and other special events throughout the year. See below for upcoming dates.</p>
         </div>
-        <div class="mission-image">
-            <img src="images/punting.png" alt="Punting on the Cam">
-        </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <div class="divider"><div class="divider-line"></div></div>
+  <div class="divider"><div class="divider-line"></div></div>
 
-    <section id="initiatives" class="initiatives">
-        <span class="label">What We Do</span>
-        <h2>Core Initiatives</h2>
-        <div class="initiatives-list">
-            <div class="initiative-item">
-                <span class="initiative-num">01</span>
-                <div class="initiative-content">
-                    <h3>Alignment Fellowship</h3>
-                    <p>Our reading groups introduce you to the core problems in AI safety, with two tracks: technical alignment and governance. Whether you're new to the field or deepening your expertise, this is where it starts.</p>
-                </div>
-            </div>
-            <div class="initiative-item">
-                <span class="initiative-num">02</span>
-                <div class="initiative-content">
-                    <h3>Mentorship for Alignment Research (MARS)</h3>
-                    <p>A part-time research programme where you work in groups with mentors from organisations like Redwood Research, MIT AI Risk Initiative, Geodesic Research, and many more — with a two-week in-person kick-off.</p>
-                </div>
-            </div>
-            <div class="initiative-item">
-                <span class="initiative-num">03</span>
-                <div class="initiative-content">
-                    <h3>Socials & Community</h3>
-                    <p>Weekly socials to help you find companions as you tackle these challenges together. We also run hackathons, retreats, and other special events throughout the year. See below for upcoming dates.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+  <section id="events" class="events">
+    <div class="events-header">
+      <div>
+        <span class="label">Events</span>
+        <h2>Lent Term 2026<img src="images/easter.png" alt="" class="easter-egg-img" loading="lazy" width="50" height="50"></h2>
+      </div>
+      <a href="#" class="events-link">View all events</a>
+    </div>
+    <div class="events-empty">Events coming soon.</div>
+  </section>
 
-    <div class="divider"><div class="divider-line"></div></div>
+  <section id="join" class="cta">
+    <div class="cta-inner">
+      <div>
+        <span class="label">Get Involved</span>
+        <h2>Join the conversation</h2>
+        <p>Whether you're an undergraduate, PhD student, or professional researcher, there's a place for you in our community.</p>
+        <a href="#" class="btn">Expression of Interest</a>
+      </div>
+      <div class="cta-image">
+        <img src="images/footer-logo.png" alt="" loading="lazy" width="280" height="280">
+      </div>
+    </div>
+  </section>
 
-    <section id="events" class="events">
-        <div class="events-header">
-            <div>
-                <span class="label">Events</span>
-                <h2>Lent Term 2026<img src="images/easter.png" alt="" class="easter-egg-img"></h2>
-            </div>
-            <a href="#" class="events-link">View all events</a>
-        </div>
-        <div class="events-empty">
-            Events coming soon.
-        </div>
-    </section>
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-legal">
+        Cambridge AI Safety Hub is a project of <a href="https://find-and-update.company-information.service.gov.uk/company/13653958" target="_blank" rel="noopener">Meridian Impact CIC</a>, a Community Interest Company registered at Companies House (company number 13653958).
+      </div>
+      <span class="footer-copy">&copy; 2026 CAISH</span>
+    </div>
+  </footer>
 
-    <section id="join" class="cta">
-        <div class="cta-inner">
-            <div>
-                <span class="label">Get Involved</span>
-                <h2>Join the conversation</h2>
-                <p>Whether you're an undergraduate, PhD student, or professional researcher, there's a place for you in our community.</p>
-                <a href="#" class="cta-btn">Expression of Interest</a>
-            </div>
-            <div class="cta-image">
-                <img src="images/footer-logo.png" alt="CAISH logo">
-            </div>
-        </div>
-    </section>
+  <script>
+    const MobileNav = {
+      init() {
+        const nav = document.getElementById('mobile-nav');
+        const toggle = document.getElementById('nav-toggle');
+        const close = document.getElementById('mobile-nav-close');
 
-    <footer>
-        <div class="footer-inner">
-            <div class="footer-legal">
-                Cambridge AI Safety Hub is a project of <a href="https://find-and-update.company-information.service.gov.uk/company/13653958" target="_blank" rel="noopener">Meridian Impact CIC</a>, a Community Interest Company registered at Companies House (company number 13653958).
-            </div>
-            <span class="footer-copy">© 2026 CAISH</span>
-        </div>
-    </footer>
+        toggle?.addEventListener('click', () => nav?.classList.add('active'));
+        close?.addEventListener('click', () => nav?.classList.remove('active'));
+        nav?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => nav.classList.remove('active')));
+      }
+    };
+
+    document.readyState === 'loading'
+      ? document.addEventListener('DOMContentLoaded', () => MobileNav.init())
+      : MobileNav.init();
+  </script>
 </body>
 </html>

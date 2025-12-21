@@ -1,564 +1,140 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="About Cambridge AI Safety Hub - Our history, mission, and team.">
-    <title>About</title>
-    
-    <link rel="icon" type="image/png" href="images/favicon.png">
-    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Space+Mono:wght@400&display=swap" rel="stylesheet">
-    
-    <style>
-        /* ========== Variables ========== */
-        :root {
-            --black: #1a1a1a;
-            --dark-grey: #4a4a4a;
-            --mid-grey: #8a8a8a;
-            --light-grey: #e0e0e0;
-            --off-white: #f8f7f4;
-            --cream: #f4f3ef;
-            --white: #fefefe;
-            --max-width: 1000px;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="About Cambridge AI Safety Hub - Our history, mission, and team.">
+  <title>About | Cambridge AI Safety Hub</title>
 
-        /* ========== Reset ========== */
-        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-        
-        /* ========== Base ========== */
-        html { font-size: 16px; scroll-behavior: smooth; }
-        
-        body {
-            font-family: 'Space Mono', monospace;
-            font-weight: 400;
-            background: var(--off-white);
-            color: var(--black);
-            line-height: 1.8;
-            letter-spacing: -0.01em;
-            position: relative;
-        }
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="images/favicon.png">
+  <link rel="apple-touch-icon" href="images/favicon.png">
 
-        /* Subtle paper grain texture */
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%' height='100%' filter='url(%23noise)'/%3E%3C/svg%3E");
-            opacity: 0.03;
-            pointer-events: none;
-            z-index: 1000;
-        }
+  <!-- Preload critical resources -->
+  <link rel="preload" href="styles.css" as="style">
+  <link rel="preload" href="images/logo.png" as="image">
 
-        /* ========== Typography ========== */
-        h1, h2, h3 {
-            font-family: 'Libre Baskerville', Georgia, serif;
-            font-weight: 400;
-            letter-spacing: -0.02em;
-        }
-        h1 { 
-            font-size: clamp(2rem, 4vw, 3rem); 
-            line-height: 1.2; 
-        }
-        h2 { 
-            font-size: clamp(1.4rem, 2.8vw, 1.85rem); 
-            line-height: 1.35; 
-        }
-        h3 { 
-            font-size: 1.05rem; 
-            line-height: 1.4;
-        }
-        p { 
-            font-size: 0.88rem; 
-            max-width: 60ch; 
-            color: var(--dark-grey);
-        }
-        a { color: inherit; text-decoration: none; }
-        em { font-style: italic; }
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Space+Mono:wght@400&display=swap" rel="stylesheet">
 
-        /* ========== Utilities ========== */
-        .label {
-            font-size: 0.6rem;
-            letter-spacing: 0.25em;
-            text-transform: uppercase;
-            color: var(--mid-grey);
-            margin-bottom: 1.5rem;
-            display: block;
-        }
-
-        /* ========== Navigation ========== */
-        nav {
-            position: fixed;
-            top: 0; left: 0; right: 0;
-            z-index: 100;
-            background: var(--off-white);
-            border-bottom: 1px solid var(--light-grey);
-        }
-        .nav-inner {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 2.5rem;
-            max-width: var(--max-width);
-            margin: 0 auto;
-        }
-        .logo { height: 32px; opacity: 0.9; }
-        .nav-links {
-            display: flex;
-            gap: 2.5rem;
-            list-style: none;
-        }
-        .nav-links a {
-            font-size: 0.75rem;
-            letter-spacing: 0.03em;
-            color: var(--dark-grey);
-            transition: color 0.2s;
-        }
-        .nav-links a:hover { color: var(--black); }
-
-        /* ========== Mobile Navigation ========== */
-        .nav-toggle {
-            display: none;
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 0.5rem;
-        }
-        .nav-toggle span {
-            display: block;
-            width: 24px;
-            height: 2px;
-            background: var(--black);
-            margin: 5px 0;
-            transition: all 0.3s;
-        }
-        .mobile-nav {
-            display: none;
-            position: fixed;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: var(--off-white);
-            z-index: 200;
-            padding: 6rem 2.5rem;
-        }
-        .mobile-nav.active {
-            display: block;
-        }
-        .mobile-nav-close {
-            position: absolute;
-            top: 1rem;
-            right: 1.5rem;
-            background: none;
-            border: none;
-            font-size: 2rem;
-            cursor: pointer;
-            color: var(--black);
-            line-height: 1;
-        }
-        .mobile-nav ul {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-        }
-        .mobile-nav a {
-            font-family: 'Libre Baskerville', serif;
-            font-size: 1.5rem;
-            color: var(--black);
-        }
-        .mobile-nav a:hover {
-            opacity: 0.6;
-        }
-
-        /* ========== Sections ========== */
-        section {
-            max-width: var(--max-width);
-            margin: 0 auto;
-            padding: 0 2.5rem;
-        }
-
-        /* ========== Page Header ========== */
-        .page-header {
-            padding-top: 9rem;
-            padding-bottom: 4rem;
-        }
-        .page-header h1 {
-            margin-bottom: 1.5rem;
-        }
-        .page-header p {
-            max-width: 50ch;
-        }
-
-        /* ========== Divider ========== */
-        .divider {
-            max-width: var(--max-width);
-            margin: 0 auto;
-            padding: 0 2.5rem;
-        }
-        .divider-line {
-            height: 1px;
-            background: var(--light-grey);
-        }
-
-        /* ========== About Section ========== */
-        .about-section {
-            padding-top: 4rem;
-            padding-bottom: 4rem;
-        }
-        
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .about-text h2 {
-            margin-bottom: 1.5rem;
-        }
-        
-        .about-text p {
-            margin-bottom: 1rem;
-            max-width: 100%; /* Allows text to fill the grid column */
-        }
-
-        .about-image img {
-            width: 100%;
-            height: auto;
-            display: block;
-            border-radius: 2px;
-            object-fit: cover;
-        }
-
-        /* ========== Team Section ========== */
-        .team-section {
-            padding-top: 4rem;
-            padding-bottom: 4rem;
-        }
-        .team-section h2 {
-            margin-bottom: 2.5rem;
-        }
-
-        /* ========== Directors ========== */
-        .directors {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            margin-bottom: 4rem;
-        }
-        .director {
-            display: flex;
-            flex-direction: column;
-            /* Added Global Centering */
-            align-items: center; 
-            text-align: center;
-        }
-        .director-photo {
-            width: 100%;
-            aspect-ratio: 1/1;
-            max-width: 280px;
-            margin-bottom: 1.5rem;
-            overflow: hidden;
-            position: relative;
-        }
-        .director-photo img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: opacity 0.3s;
-        }
-        .director-photo img.full {
-            position: absolute;
-            top: 0;
-            left: 0;
-            opacity: 0;
-        }
-        .director-photo:hover img.outline {
-            opacity: 0;
-        }
-        .director-photo:hover img.full {
-            opacity: 1;
-        }
-        .director h3 {
-            margin-bottom: 0.5rem;
-        }
-        .director-role {
-            font-size: 0.7rem;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            color: var(--mid-grey);
-            margin-bottom: 1rem;
-        }
-        .director p {
-            font-size: 0.85rem;
-        }
-
-        /* ========== Committee & Advisors ========== */
-        .team-group {
-            margin-bottom: 3rem;
-        }
-        .team-group h3 {
-            margin-bottom: 1.5rem;
-            padding-bottom: 0.75rem;
-            border-bottom: 1px solid var(--light-grey);
-        }
-        .team-list {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
-        }
-        .team-member {
-            display: flex;
-            flex-direction: column;
-        }
-        .team-member-photo {
-            width: 100%;
-            aspect-ratio: 1/1;
-            max-width: 180px;
-            background: var(--cream);
-            margin-bottom: 1rem;
-            overflow: hidden;
-        }
-        .team-member-photo img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        .team-member h4 {
-            font-family: 'Libre Baskerville', serif;
-            font-size: 0.95rem;
-            font-weight: 400;
-            margin-bottom: 0.25rem;
-        }
-        .team-member span {
-            font-size: 0.7rem;
-            color: var(--mid-grey);
-        }
-
-        /* ========== Footer ========== */
-        footer {
-            padding: 2.5rem;
-            max-width: var(--max-width);
-            margin: 0 auto;
-        }
-        .footer-inner {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            gap: 3rem;
-        }
-        .footer-legal {
-            font-size: 0.68rem;
-            color: var(--mid-grey);
-            line-height: 1.7;
-            max-width: 50ch;
-        }
-        .footer-legal a {
-            border-bottom: 1px solid var(--light-grey);
-        }
-        .footer-legal a:hover {
-            color: var(--black);
-        }
-        .footer-copy {
-            font-size: 0.68rem;
-            color: var(--mid-grey);
-            white-space: nowrap;
-        }
-
-        /* ========== Responsive ========== */
-        @media (max-width: 800px) {
-            .about-grid {
-                grid-template-columns: 1fr;
-                gap: 2.5rem;
-            }
-            .directors {
-                grid-template-columns: 1fr;
-                gap: 2.5rem;
-            }
-            .team-list {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .footer-inner {
-                flex-direction: column;
-                gap: 1rem;
-            }
-        }
-        @media (max-width: 600px) {
-            .nav-links { display: none; }
-            .nav-toggle { display: block; }
-            .page-header { padding-top: 6rem; padding-bottom: 3rem; }
-            section { padding-left: 1.5rem; padding-right: 1.5rem; }
-            .divider { padding-left: 1.5rem; padding-right: 1.5rem; }
-            footer { padding: 2rem 1.5rem; }
-            .team-list {
-                grid-template-columns: 1fr 1fr;
-                gap: 1rem;
-            }
-        }
-    </style>
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <nav>
-        <div class="nav-inner">
-            <a href="/" aria-label="Home">
-                <img src="images/logo.png" alt="CAISH" class="logo">
-            </a>
-            <ul class="nav-links">
-                <li><a href="/about">About</a></li>
-                <li><a href="/fellowship">Alignment Fellowship</a></li>
-                <li><a href="/socials">Socials</a></li>
-                <li><a href="/mars">MARS</a></li>
-                <li><a href="/membership">Membership</a></li>
-            </ul>
-            <button class="nav-toggle" aria-label="Open menu" id="nav-toggle">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-        </div>
-    </nav>
+  <nav>
+    <div class="nav-inner">
+      <a href="/" aria-label="Home">
+        <img src="images/logo.png" alt="CAISH" class="logo" width="100" height="32">
+      </a>
+      <ul class="nav-links">
+        <li><a href="/about">About</a></li>
+        <li><a href="/fellowship">Alignment Fellowship</a></li>
+        <li><a href="/socials">Socials</a></li>
+        <li><a href="/mars">MARS</a></li>
+        <li><a href="/membership">Membership</a></li>
+      </ul>
+      <button class="nav-toggle" aria-label="Open menu" id="nav-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
 
-    <!-- Mobile Navigation Overlay -->
-    <div id="mobile-nav" class="mobile-nav">
-        <button class="mobile-nav-close" aria-label="Close menu" id="mobile-nav-close">&times;</button>
-        <ul>
-            <li><a href="/about">About</a></li>
-            <li><a href="/fellowship">Alignment Fellowship</a></li>
-            <li><a href="/socials">Socials</a></li>
-            <li><a href="/mars">MARS</a></li>
-            <li><a href="/membership">Membership</a></li>
-        </ul>
+  <div id="mobile-nav" class="mobile-nav">
+    <button class="mobile-nav-close" aria-label="Close menu" id="mobile-nav-close">&times;</button>
+    <ul>
+      <li><a href="/about">About</a></li>
+      <li><a href="/fellowship">Alignment Fellowship</a></li>
+      <li><a href="/socials">Socials</a></li>
+      <li><a href="/mars">MARS</a></li>
+      <li><a href="/membership">Membership</a></li>
+    </ul>
+  </div>
+
+  <section class="page-header">
+    <h1>About Us</h1>
+    <p>Building the AI safety community in one of the world's leading academic centres.</p>
+  </section>
+
+  <div class="divider"><div class="divider-line"></div></div>
+
+  <section class="about-section">
+    <div class="about-grid">
+      <div class="about-text">
+        <h2>Our Story</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      </div>
+      <div class="about-image">
+        <img src="images/lunch.png" alt="Community lunch gathering" loading="lazy" width="600" height="400">
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"><div class="divider-line"></div></div>
+
+  <section class="team-section">
+    <span class="label">Our Team</span>
+    <h2>Leadership</h2>
+
+    <div class="directors">
+      <div class="director">
+        <div class="director-photo">
+          <img src="images/justin-outline.png" alt="Justin Dollman" class="outline" loading="lazy" width="280" height="280">
+          <img src="images/justin-full.jpeg" alt="Justin Dollman" class="full" loading="lazy" width="280" height="280">
+        </div>
+        <h3>Justin Dollman</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+      </div>
+      <div class="director">
+        <div class="director-photo">
+          <img src="images/gaurav-outline.png" alt="Gaurav Yadav" class="outline" loading="lazy" width="280" height="280">
+          <img src="images/gaurav-full.jpg" alt="Gaurav Yadav" class="full" loading="lazy" width="280" height="280">
+        </div>
+        <h3>Gaurav Yadav</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+      </div>
     </div>
 
-    <script>
-        // Mobile Navigation Controller
-        const MobileNav = {
-            nav: null,
+    <div class="team-group">
+      <h3>Student Committee</h3>
+      <div class="team-list">
+        <div class="team-member"><h4>Zach Liu</h4></div>
+        <div class="team-member"><h4>Zejia Yang</h4></div>
+        <div class="team-member"><h4>Raghavendra Narayan Rao</h4></div>
+        <div class="team-member"><h4>Adam Watney</h4></div>
+      </div>
+    </div>
+  </section>
 
-            init() {
-                this.nav = document.getElementById('mobile-nav');
-                this.attachEventListeners();
-            },
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-legal">
+        Cambridge AI Safety Hub is a project of <a href="https://find-and-update.company-information.service.gov.uk/company/13653958" target="_blank" rel="noopener">Meridian Impact CIC</a>, a Community Interest Company registered at Companies House (company number 13653958).
+      </div>
+      <span class="footer-copy">&copy; 2026 CAISH</span>
+    </div>
+  </footer>
 
-            open() {
-                if (this.nav) {
-                    this.nav.classList.add('active');
-                }
-            },
+  <script>
+    const MobileNav = {
+      init() {
+        const nav = document.getElementById('mobile-nav');
+        const toggle = document.getElementById('nav-toggle');
+        const close = document.getElementById('mobile-nav-close');
 
-            close() {
-                if (this.nav) {
-                    this.nav.classList.remove('active');
-                }
-            },
+        toggle?.addEventListener('click', () => nav?.classList.add('active'));
+        close?.addEventListener('click', () => nav?.classList.remove('active'));
+        nav?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => nav.classList.remove('active')));
+      }
+    };
 
-            attachEventListeners() {
-                const toggleBtn = document.getElementById('nav-toggle');
-                const closeBtn = document.getElementById('mobile-nav-close');
-                const navLinks = this.nav?.querySelectorAll('a');
-
-                if (toggleBtn) {
-                    toggleBtn.addEventListener('click', () => this.open());
-                }
-
-                if (closeBtn) {
-                    closeBtn.addEventListener('click', () => this.close());
-                }
-
-                // Close nav when clicking any link
-                navLinks?.forEach(link => {
-                    link.addEventListener('click', () => this.close());
-                });
-            }
-        };
-
-        // Initialize when DOM is ready
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', () => MobileNav.init());
-        } else {
-            MobileNav.init();
-        }
-    </script>
-
-    <!-- Page Header -->
-    <section class="page-header">
-        <h1>About Us</h1>
-        <p>Building the AI safety community in one of the world's leading academic centres.</p>
-    </section>
-
-    <div class="divider"><div class="divider-line"></div></div>
-
-    <!-- History & Mission -->
-    <section class="about-section">
-        <div class="about-grid">
-            <div class="about-text">
-                <h2>Our Story</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            </div>
-            <div class="about-image">
-                <img src="images/lunch.png" alt="Community Lunch" onerror="this.onerror=null;this.src='https://placehold.co/600x400/e0e0e0/8a8a8a?text=Lunch+Image';">
-            </div>
-        </div>
-    </section>
-
-    <div class="divider"><div class="divider-line"></div></div>
-
-    <!-- Team Section -->
-    <section class="team-section">
-        <span class="label">Our Team</span>
-        <h2>Leadership</h2>
-
-        <!-- Directors -->
-        <div class="directors">
-            <div class="director">
-                <div class="director-photo">
-                    <img src="images/justin-outline.png" alt="Justin Dollman" class="outline">
-                    <img src="images/justin-full.jpeg" alt="Justin Dollman" class="full">
-                </div>
-                <h3>Justin Dollman</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-            </div>
-            <div class="director">
-                <div class="director-photo">
-                    <img src="images/gaurav-outline.png" alt="Gaurav Yadav" class="outline">
-                    <img src="images/gaurav-full.jpg" alt="Gaurav Yadav" class="full">
-                </div>
-                <h3>Gaurav Yadav</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-            </div>
-        </div>
-
-        <!-- Student Committee -->
-        <div class="team-group">
-            <h3>Student Committee</h3>
-            <div class="team-list">
-                <div class="team-member">
-                    <h4>Zach Liu</h4>
-                </div>
-                <div class="team-member">
-                    <h4>Zejia Yang</h4>
-                </div>
-                <div class="team-member">
-                    <h4>Raghavendra Narayan Rao</h4>
-                </div>
-                <div class="team-member">
-                    <h4>Adam Watney</h4>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="footer-inner">
-            <div class="footer-legal">
-                Cambridge AI Safety Hub is a project of <a href="https://find-and-update.company-information.service.gov.uk/company/13653958" target="_blank" rel="noopener">Meridian Impact CIC</a>, a Community Interest Company registered at Companies House (company number 13653958).
-            </div>
-            <span class="footer-copy">© 2026 CAISH</span>
-        </div>
-    </footer>
+    document.readyState === 'loading'
+      ? document.addEventListener('DOMContentLoaded', () => MobileNav.init())
+      : MobileNav.init();
+  </script>
 </body>
 </html>
