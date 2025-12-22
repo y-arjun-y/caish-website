@@ -272,7 +272,7 @@
   /* Hero */
   .hero {
     padding-top: 9rem;
-    padding-bottom: 5rem;
+    padding-bottom: 3.5rem;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 3rem;
@@ -306,8 +306,8 @@
   
   /* Mission */
   .mission {
-    padding-top: 5rem;
-    padding-bottom: 5rem;
+    padding-top: 3.5rem;
+    padding-bottom: 3.5rem;
     display: grid;
     grid-template-columns: 1fr 1.2fr;
     gap: 4rem;
@@ -335,11 +335,11 @@
   
   /* Initiatives */
   .initiatives {
-    padding-top: 5rem;
-    padding-bottom: 5rem;
+    padding-top: 3.5rem;
+    padding-bottom: 3rem;
   }
   
-  .initiatives h2 { margin-bottom: 3rem; }
+  .initiatives h2 { margin-bottom: 2rem; }
   
   .initiatives-list {
     display: flex;
@@ -355,7 +355,7 @@
   }
   
   .initiative-item:last-child {
-    border-bottom: 1px solid var(--light-grey);
+    border-bottom: none;
   }
   
   .initiative-num {
@@ -373,8 +373,8 @@
   
   /* Events */
   .events {
-    padding-top: 5rem;
-    padding-bottom: 5rem;
+    padding-top: 3.5rem;
+    padding-bottom: 3.5rem;
   }
   
   .events-header {
