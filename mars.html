@@ -33,7 +33,6 @@
         <li><a href="/fellowship">Alignment Fellowship</a></li>
         <li><a href="/socials">Socials</a></li>
         <li><a href="/mars">MARS</a></li>
-        <li><a href="/membership">Membership</a></li>
       </ul>
       <button class="nav-toggle" aria-label="Open menu" id="nav-toggle">
         <span></span>
@@ -50,7 +49,6 @@
       <li><a href="/fellowship">Alignment Fellowship</a></li>
       <li><a href="/socials">Socials</a></li>
       <li><a href="/mars">MARS</a></li>
-      <li><a href="/membership">Membership</a></li>
     </ul>
   </div>
 
@@ -170,13 +168,14 @@
           <h4>Depth-Wise Activation Steering for Honest Language Models</h4>
           <p class="research-authors">Gracjan Góral, Marysia Winkels, Steven Basart</p>
         </a>
-        <a href="https://www.lesswrong.com/posts/YdGcBBrrExaC6AmHt/the-sum-of-its-parts-composing-ai-control-protocols" target="_blank" rel="noopener" class="research-card">
+        <a href="https://openreview.net/pdf?id=hVR3023UP2" target="_blank" rel="noopener" class="research-card">
           <div class="research-header">
             <span class="research-cohort">MARS 3.0</span>
-            <span class="research-type">Blog post</span>
+            <span class="research-type">Paper</span>
           </div>
-          <h4>The sum of its parts: composing AI control protocols</h4>
-          <p class="research-authors">Zach Parent, Lennart Finke, Tyler Tracy</p>
+          <h4>Combining Cost-Constrained Runtime Monitors for AI Safety</h4>
+          <p class="research-authors">Tim Hua, James Baskerville, Henri Lemoine, Mia Hopman, Aryan Bhatt, Tyler Tracy</p>
+          <p class="research-status">Accepted to NeurIPS 2025</p>
         </a>
       </div>
       
@@ -210,11 +209,23 @@
         <p class="application-notice">Applications open soon.</p>
         <p>Sign up to be notified when applications open for the next cohort.</p>
         <div class="btn-wrapper">
-          <a href="#" class="btn-primary">Expression of Interest</a>
+          <button class="btn-primary" type="button" id="open-eoi-modal">Expression of Interest</button>
         </div>
       </div>
     </div>
   </section>
+
+  <div class="modal-overlay" id="eoi-modal" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="eoi-title">
+      <div class="modal-header">
+        <h3 id="eoi-title">MARS 5.0 Expression of Interest</h3>
+        <button class="modal-close" type="button" aria-label="Close form" id="close-eoi-modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <iframe data-tally-src="https://tally.so/r/wdOGeK" title="MARS 5.0 - Expression of Interest"></iframe>
+      </div>
+    </div>
+  </div>
 
   <footer>
     <div class="footer-inner">
@@ -238,9 +249,49 @@
       }
     };
 
+    const MarsModal = {
+      init() {
+        const openButton = document.getElementById('open-eoi-modal');
+        const closeButton = document.getElementById('close-eoi-modal');
+        const modal = document.getElementById('eoi-modal');
+
+        if (!openButton || !closeButton || !modal) return;
+
+        const openModal = () => {
+          modal.classList.add('active');
+          modal.setAttribute('aria-hidden', 'false');
+          document.body.classList.add('modal-open');
+        };
+
+        const closeModal = () => {
+          modal.classList.remove('active');
+          modal.setAttribute('aria-hidden', 'true');
+          document.body.classList.remove('modal-open');
+        };
+
+        openButton.addEventListener('click', openModal);
+        closeButton.addEventListener('click', closeModal);
+        modal.addEventListener('click', (event) => {
+          if (event.target === modal) {
+            closeModal();
+          }
+        });
+
+        document.addEventListener('keydown', (event) => {
+          if (event.key === 'Escape' && modal.classList.contains('active')) {
+            closeModal();
+          }
+        });
+      }
+    };
+
     document.readyState === 'loading'
-      ? document.addEventListener('DOMContentLoaded', () => MobileNav.init())
-      : MobileNav.init();
+      ? document.addEventListener('DOMContentLoaded', () => {
+          MobileNav.init();
+          MarsModal.init();
+        })
+      : (MobileNav.init(), MarsModal.init());
   </script>
+  <script async src="https://tally.so/widgets/embed.js"></script>
 </body>
 </html>

@@ -49,7 +49,7 @@
   body {
     font-family: var(--font-mono);
     font-weight: 400;
-    background: var(--off-white);
+    background: linear-gradient(180deg, #fbfaf7 0%, #f3efe9 100%);
     color: var(--black);
     line-height: 1.8;
     letter-spacing: -0.01em;
@@ -141,8 +141,10 @@
     left: 0;
     right: 0;
     z-index: 100;
-    background: var(--off-white);
-    border-bottom: 1px solid var(--light-grey);
+    background: rgba(248, 247, 244, 0.92);
+    border-bottom: 1px solid rgba(224, 224, 224, 0.7);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.05);
   }
   
   .nav-inner {
@@ -166,13 +168,33 @@
   }
   
   .nav-links a {
+    position: relative;
     font-size: 0.75rem;
     letter-spacing: 0.03em;
     color: var(--dark-grey);
     transition: color 0.2s;
   }
-  
+
+  .nav-links a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -0.4rem;
+    height: 1px;
+    background: var(--black);
+    opacity: 0;
+    transform: scaleX(0.6);
+    transform-origin: center;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+  }
+
   .nav-links a:hover { color: var(--black); }
+
+  .nav-links a:hover::after {
+    opacity: 0.6;
+    transform: scaleX(1);
+  }
   
   /* Mobile Navigation */
   .nav-toggle {
@@ -246,10 +268,16 @@
     color: var(--black);
     border: none;
     cursor: pointer;
-    transition: opacity 0.2s;
+    border-radius: 999px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+    transition: opacity 0.2s, transform 0.2s, box-shadow 0.2s;
   }
-  
-  .btn:hover { opacity: 0.85; }
+
+  .btn:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+    box-shadow: 0 14px 24px rgba(0, 0, 0, 0.12);
+  }
   
   /* Easter Egg */
   .easter-egg {
@@ -350,12 +378,19 @@
     display: grid;
     grid-template-columns: 2.5rem 1fr;
     gap: 2rem;
-    padding: 1.75rem 0;
-    border-top: 1px solid var(--light-grey);
+    padding: 1.75rem;
+    border: 1px solid rgba(224, 224, 224, 0.9);
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.75);
+    box-shadow: 0 16px 30px rgba(0, 0, 0, 0.04);
   }
-  
+
   .initiative-item:last-child {
-    border-bottom: 1px solid var(--light-grey);
+    border-bottom: 1px solid rgba(224, 224, 224, 0.9);
+  }
+
+  .initiative-item + .initiative-item {
+    margin-top: 1rem;
   }
   
   .initiative-num {
@@ -715,14 +750,17 @@
     background: var(--black);
     color: var(--white);
     border: none;
-    border-radius: 8px;
+    border-radius: 999px;
     cursor: pointer;
-    transition: opacity 0.2s;
+    box-shadow: 0 16px 28px rgba(0, 0, 0, 0.2);
+    transition: opacity 0.2s, transform 0.2s, box-shadow 0.2s;
     text-decoration: none;
   }
-  
+
   .btn-primary:hover {
     opacity: 0.85;
+    transform: translateY(-1px);
+    box-shadow: 0 20px 32px rgba(0, 0, 0, 0.22);
   }
   
   .fellowship-block h2 {
@@ -745,7 +783,9 @@
   .track {
     padding: 1.5rem;
     background: var(--cream);
-    border-radius: 4px;
+    border-radius: 14px;
+    border: 1px solid rgba(224, 224, 224, 0.8);
+    box-shadow: 0 14px 26px rgba(0, 0, 0, 0.05);
   }
   
   .track h3 {
@@ -800,6 +840,10 @@
   .feature {
     padding: 1.25rem;
     border-left: 2px solid var(--light-grey);
+    background: rgba(255, 255, 255, 0.65);
+    border-radius: 12px;
+    border: 1px solid rgba(224, 224, 224, 0.8);
+    box-shadow: 0 12px 22px rgba(0, 0, 0, 0.04);
   }
   
   .feature h4 {
@@ -830,6 +874,10 @@
   .expectation {
     padding: 1.25rem;
     border-left: 2px solid var(--light-grey);
+    background: rgba(255, 255, 255, 0.65);
+    border-radius: 12px;
+    border: 1px solid rgba(224, 224, 224, 0.8);
+    box-shadow: 0 12px 22px rgba(0, 0, 0, 0.04);
   }
   
   .expectation h4 {
@@ -879,6 +927,7 @@
     object-fit: cover;
     display: block;
     margin: 0 auto;
+    border-radius: 12px;
   }
   
   .mars-header {
@@ -911,6 +960,11 @@
     margin-bottom: 1rem;
     max-width: 100%;
   }
+
+  .mars-content > p:first-of-type {
+    font-size: 1.05rem;
+    color: var(--black);
+  }
   
   .mars-content h2 {
     margin-top: 3rem;
@@ -932,14 +986,22 @@
     max-width: 220px;
     background: var(--cream);
     padding: 1.25rem;
-    border-radius: 6px;
+    border-radius: 10px;
+    border: 1px solid rgba(141, 141, 141, 0.2);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.06);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .journey-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 30px rgba(0, 0, 0, 0.1);
   }
   
   .journey-number {
     display: inline-block;
     width: 1.5rem;
     height: 1.5rem;
-    background: var(--black);
+    background: #8c4a3a;
     color: var(--white);
     font-family: var(--font-mono);
     font-size: 0.7rem;
@@ -1013,6 +1075,10 @@
   
   .mentor {
     text-align: center;
+    padding: 1rem 0.75rem;
+    background: rgba(250, 246, 240, 0.7);
+    border-radius: 12px;
+    border: 1px solid rgba(141, 141, 141, 0.15);
   }
   
   .mentor-photo {
@@ -1022,6 +1088,7 @@
     background: var(--cream);
     border-radius: 50%;
     margin-bottom: 0.75rem;
+    border: 2px solid rgba(140, 74, 58, 0.2);
   }
   
   .mentor h4 {
@@ -1057,6 +1124,8 @@
     padding: 1.5rem;
     background: var(--cream);
     border-radius: 6px;
+    border: 1px solid rgba(141, 141, 141, 0.2);
+    border-top: 4px solid rgba(140, 74, 58, 0.6);
     text-decoration: none;
     color: inherit;
     transition: transform 0.2s, box-shadow 0.2s;
@@ -1064,7 +1133,7 @@
   
   .research-card:hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
   }
   
   .research-header {
@@ -1077,10 +1146,11 @@
   .research-cohort {
     font-family: var(--font-mono);
     font-size: 0.7rem;
-    color: var(--mid-grey);
+    color: #8c4a3a;
     padding: 0.35rem 0.6rem;
-    border: 1px solid var(--light-grey);
+    border: 1px solid rgba(140, 74, 58, 0.35);
     border-radius: 4px;
+    background: rgba(140, 74, 58, 0.08);
   }
   
   .research-type {
@@ -1101,6 +1171,14 @@
     font-size: 0.8rem;
     color: var(--dark-grey);
     line-height: 1.5;
+    margin-bottom: 0;
+  }
+
+  .research-status {
+    font-size: 0.75rem;
+    color: var(--mid-grey);
+    font-style: italic;
+    margin-top: 0.5rem;
     margin-bottom: 0;
   }
   
@@ -1185,6 +1263,10 @@
     border-top: 1px solid var(--light-grey);
     clear: both;
     text-align: center;
+    background: rgba(250, 246, 240, 0.7);
+    border-radius: 14px;
+    padding-bottom: 2.5rem;
+    box-shadow: 0 16px 28px rgba(0, 0, 0, 0.06);
   }
   
   .mars-application h2 {
@@ -1202,6 +1284,85 @@
   .mars-application p {
     margin-bottom: 1.5rem;
     max-width: 100%;
+  }
+
+  .modal-open {
+    overflow: hidden;
+  }
+
+  .modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(10, 10, 10, 0.55);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 1.5rem;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+    z-index: 1000;
+  }
+
+  .modal-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .modal {
+    width: min(960px, 95vw);
+    background: var(--white);
+    border-radius: 16px;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    max-height: 90vh;
+    min-height: 70vh;
+  }
+
+  .modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid var(--light-grey);
+  }
+
+  .modal-header h3 {
+    font-family: var(--font-serif);
+    font-size: 1.1rem;
+    font-weight: 400;
+    margin: 0;
+  }
+
+  .modal-close {
+    background: transparent;
+    border: none;
+    font-size: 1.5rem;
+    line-height: 1;
+    cursor: pointer;
+    color: var(--dark-grey);
+  }
+
+  .modal-close:hover {
+    color: var(--black);
+  }
+
+  .modal-body {
+    position: relative;
+    flex: 1;
+    background: var(--cream);
+    min-height: 60vh;
+    height: 100%;
+  }
+
+  .modal-body iframe {
+    width: 100%;
+    height: 100%;
+    min-height: 100%;
+    border: 0;
+    display: block;
   }
   
   /* ==========================================================================
@@ -1273,6 +1434,7 @@
     .mars-hero-image {
       padding: 4rem 1.5rem 0 1.5rem;
     }
+
   
     .mars-hero-image img {
       max-height: 250px;
