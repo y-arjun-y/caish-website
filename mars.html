@@ -254,6 +254,7 @@
         const openButton = document.getElementById('open-eoi-modal');
         const closeButton = document.getElementById('close-eoi-modal');
         const modal = document.getElementById('eoi-modal');
+        const iframe = modal?.querySelector('iframe');
 
         if (!openButton || !closeButton || !modal) return;
 
@@ -261,6 +262,13 @@
           modal.classList.add('active');
           modal.setAttribute('aria-hidden', 'false');
           document.body.classList.add('modal-open');
+          // Load the Tally form when modal opens
+          if (iframe && !iframe.src) {
+            const tallySrc = iframe.getAttribute('data-tally-src');
+            if (tallySrc) {
+              iframe.src = tallySrc + '?alignLeft=1&hideTitle=1&transparentBackground=1';
+            }
+          }
         };
 
         const closeModal = () => {
