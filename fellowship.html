@@ -29,10 +29,10 @@
         <img src="/images/logo.png" alt="CAISH" class="logo" width="50" height="50">
       </a>
       <ul class="nav-links">
-        <li><a href="/about">About</a></li>
         <li><a href="/fellowship">Alignment Fellowship</a></li>
-        <li><a href="/socials">Socials</a></li>
         <li><a href="/mars">MARS</a></li>
+        <li><a href="/socials">Socials</a></li>
+        <li><a href="/about">About</a></li>
       </ul>
       <button class="nav-toggle" aria-label="Open menu" id="nav-toggle">
         <span></span>
@@ -45,10 +45,10 @@
   <div id="mobile-nav" class="mobile-nav">
     <button class="mobile-nav-close" aria-label="Close menu" id="mobile-nav-close">&times;</button>
     <ul>
-      <li><a href="/about">About</a></li>
       <li><a href="/fellowship">Alignment Fellowship</a></li>
-      <li><a href="/socials">Socials</a></li>
       <li><a href="/mars">MARS</a></li>
+      <li><a href="/socials">Socials</a></li>
+      <li><a href="/about">About</a></li>
     </ul>
   </div>
 
@@ -147,11 +147,23 @@
         <h2>Application process</h2>
         <p>Details are still being finalised and may change. We expect to open applications for Lent Term soon, with more information on the process to follow.</p>
         <div class="btn-wrapper">
-          <a href="#" class="btn-primary">Expression of Interest</a>
+          <button class="btn-primary" type="button" id="open-fellowship-modal">Expression of Interest</button>
         </div>
       </div>
     </div>
   </section>
+
+  <div class="modal-overlay" id="fellowship-modal" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="fellowship-title">
+      <div class="modal-header">
+        <h3 id="fellowship-title">Alignment Fellowship Expression of Interest</h3>
+        <button class="modal-close" type="button" aria-label="Close form" id="close-fellowship-modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <iframe data-tally-src="https://tally.so/r/mJQ7yY" title="The Alignment Fellowship -- Expression of Interest" frameborder="0" marginheight="0" marginwidth="0"></iframe>
+      </div>
+    </div>
+  </div>
 
   <footer>
     <div class="footer-inner">
@@ -175,9 +187,56 @@
       }
     };
 
+    const FellowshipModal = {
+      init() {
+        const openButton = document.getElementById('open-fellowship-modal');
+        const closeButton = document.getElementById('close-fellowship-modal');
+        const modal = document.getElementById('fellowship-modal');
+        const iframe = modal?.querySelector('iframe');
+
+        if (!openButton || !closeButton || !modal) return;
+
+        const openModal = () => {
+          modal.classList.add('active');
+          modal.setAttribute('aria-hidden', 'false');
+          document.body.classList.add('modal-open');
+          if (iframe && !iframe.src) {
+            const tallySrc = iframe.getAttribute('data-tally-src');
+            if (tallySrc) {
+              iframe.src = tallySrc + '?alignLeft=1&hideTitle=1&transparentBackground=1';
+            }
+          }
+        };
+
+        const closeModal = () => {
+          modal.classList.remove('active');
+          modal.setAttribute('aria-hidden', 'true');
+          document.body.classList.remove('modal-open');
+        };
+
+        openButton.addEventListener('click', openModal);
+        closeButton.addEventListener('click', closeModal);
+        modal.addEventListener('click', (event) => {
+          if (event.target === modal) {
+            closeModal();
+          }
+        });
+
+        document.addEventListener('keydown', (event) => {
+          if (event.key === 'Escape' && modal.classList.contains('active')) {
+            closeModal();
+          }
+        });
+      }
+    };
+
     document.readyState === 'loading'
-      ? document.addEventListener('DOMContentLoaded', () => MobileNav.init())
-      : MobileNav.init();
+      ? document.addEventListener('DOMContentLoaded', () => {
+          MobileNav.init();
+          FellowshipModal.init();
+        })
+      : (MobileNav.init(), FellowshipModal.init());
   </script>
+  <script async src="https://tally.so/widgets/embed.js"></script>
 </body>
 </html>
