@@ -544,6 +544,12 @@
   color: var(--dark-grey);
 }
 
+.events-rsvp {
+  margin-top: 1.5rem;
+  font-size: 0.85rem;
+  color: var(--mid-grey);
+}
+
 .past-events-heading {
   margin-top: 3rem;
 }
