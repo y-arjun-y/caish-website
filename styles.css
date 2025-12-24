@@ -1211,6 +1211,18 @@
     border-color: rgba(26, 26, 26, 0.6);
   }
 
+  .inline-link {
+    color: var(--black);
+    border-bottom: 1px solid rgba(74, 74, 74, 0.35);
+    transition: border-color 0.2s ease, color 0.2s ease;
+  }
+
+  .inline-link:hover,
+  .inline-link:focus-visible {
+    color: var(--black);
+    border-color: rgba(26, 26, 26, 0.6);
+  }
+
 .socials-image {
   max-width: var(--max-width);
   padding: 0 2.5rem 5rem;
