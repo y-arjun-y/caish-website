@@ -108,9 +108,9 @@
      ========================================================================== */
   .label {
     font-size: 0.6rem;
-    letter-spacing: 0.25em;
+    letter-spacing: 0.3em;
     text-transform: uppercase;
-    color: var(--mid-grey);
+    color: var(--dark-grey);
     margin-bottom: 1.5rem;
     display: block;
   }
@@ -144,7 +144,7 @@
     background: rgba(248, 247, 244, 0.92);
     border-bottom: 1px solid rgba(224, 224, 224, 0.7);
     backdrop-filter: blur(12px);
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.03);
   }
   
   .nav-inner {
@@ -159,6 +159,11 @@
   .logo {
     height: 32px;
     opacity: 0.9;
+    transition: opacity 0.2s ease-out;
+  }
+
+  .logo:hover {
+    opacity: 1;
   }
   
   .nav-links {
@@ -172,7 +177,7 @@
     font-size: 0.75rem;
     letter-spacing: 0.03em;
     color: var(--dark-grey);
-    transition: color 0.2s;
+    transition: color 0.2s ease-out;
   }
 
   .nav-links a::after {
@@ -211,7 +216,7 @@
     height: 2px;
     background: var(--black);
     margin: 5px 0;
-    transition: all 0.3s;
+    transition: all 0.3s ease-out;
   }
   
   .mobile-nav {
@@ -262,7 +267,7 @@
     padding: 0.8rem 1.6rem;
     font-family: var(--font-mono);
     font-size: 0.68rem;
-    letter-spacing: 0.06em;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
     background: var(--cream);
     color: var(--black);
@@ -270,7 +275,7 @@
     cursor: pointer;
     border-radius: 999px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
-    transition: opacity 0.2s, transform 0.2s, box-shadow 0.2s;
+    transition: opacity 0.2s ease-out, transform 0.2s ease-out, box-shadow 0.2s ease-out;
   }
 
   .btn:hover {
@@ -380,9 +385,9 @@
     gap: 2rem;
     padding: 1.75rem;
     border: 1px solid rgba(224, 224, 224, 0.9);
-    border-radius: 14px;
+    border-radius: 12px;
     background: rgba(255, 255, 255, 0.75);
-    box-shadow: 0 16px 30px rgba(0, 0, 0, 0.04);
+    box-shadow: 0 16px 30px rgba(0, 0, 0, 0.06);
   }
 
   .initiative-item:last-child {
@@ -426,7 +431,7 @@
     color: var(--mid-grey);
     border-bottom: 1px solid var(--light-grey);
     padding-bottom: 2px;
-    transition: all 0.2s;
+    transition: all 0.2s ease-out;
   }
   
   .events-link:hover {
@@ -745,7 +750,7 @@
     padding: 1rem 2rem;
     font-family: var(--font-mono);
     font-size: 0.75rem;
-    letter-spacing: 0.06em;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
     background: var(--black);
     color: var(--white);
@@ -753,7 +758,7 @@
     border-radius: 999px;
     cursor: pointer;
     box-shadow: 0 16px 28px rgba(0, 0, 0, 0.2);
-    transition: opacity 0.2s, transform 0.2s, box-shadow 0.2s;
+    transition: opacity 0.2s ease-out, transform 0.2s ease-out, box-shadow 0.2s ease-out;
     text-decoration: none;
   }
 
@@ -783,7 +788,7 @@
   .track {
     padding: 1.5rem;
     background: var(--cream);
-    border-radius: 14px;
+    border-radius: 12px;
     border: 1px solid rgba(224, 224, 224, 0.8);
     box-shadow: 0 14px 26px rgba(0, 0, 0, 0.05);
   }
@@ -839,7 +844,7 @@
   
   .feature {
     padding: 1.25rem;
-    border-left: 2px solid var(--light-grey);
+    border-left: 3px solid var(--light-grey);
     background: rgba(255, 255, 255, 0.65);
     border-radius: 12px;
     border: 1px solid rgba(224, 224, 224, 0.8);
@@ -873,7 +878,7 @@
   
   .expectation {
     padding: 1.25rem;
-    border-left: 2px solid var(--light-grey);
+    border-left: 3px solid var(--light-grey);
     background: rgba(255, 255, 255, 0.65);
     border-radius: 12px;
     border: 1px solid rgba(224, 224, 224, 0.8);
@@ -896,7 +901,7 @@
     list-style: none;
     margin: 1rem 0;
     padding-left: 1rem;
-    border-left: 2px solid var(--light-grey);
+    border-left: 3px solid var(--light-grey);
     clear: none;
   }
   
@@ -986,7 +991,7 @@
     max-width: 220px;
     background: var(--cream);
     padding: 1.25rem;
-    border-radius: 10px;
+    border-radius: 12px;
     border: 1px solid rgba(141, 141, 141, 0.2);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.06);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -1050,7 +1055,7 @@
 
   .mars-feature {
     padding: 1.25rem;
-    border-left: 2px solid var(--light-grey);
+    border-left: 3px solid var(--light-grey);
   }
   
   .mars-feature h4 {
@@ -1068,7 +1073,7 @@
   /* Mentors Grid */
   .mentors-grid {
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 1.5rem;
     margin: 1.5rem 0;
   }
@@ -1123,12 +1128,12 @@
     display: block;
     padding: 1.5rem;
     background: var(--cream);
-    border-radius: 6px;
+    border-radius: 12px;
     border: 1px solid rgba(141, 141, 141, 0.2);
     border-top: 4px solid rgba(140, 74, 58, 0.6);
     text-decoration: none;
     color: inherit;
-    transition: transform 0.2s, box-shadow 0.2s;
+    transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
   }
   
   .research-card:hover {
@@ -1194,7 +1199,7 @@
     color: var(--dark-grey);
     border-bottom: 1px solid var(--light-grey);
     margin-top: 0.5rem;
-    transition: all 0.2s;
+    transition: all 0.2s ease-out;
   }
   
   .view-all-link:hover {
@@ -1215,7 +1220,7 @@
     flex-direction: column;
     padding: 1.5rem;
     background: var(--cream);
-    border-radius: 4px;
+    border-radius: 12px;
   }
   
   .alumni-photo {
@@ -1264,7 +1269,7 @@
     clear: both;
     text-align: center;
     background: rgba(250, 246, 240, 0.7);
-    border-radius: 14px;
+    border-radius: 12px;
     padding-bottom: 2.5rem;
     box-shadow: 0 16px 28px rgba(0, 0, 0, 0.06);
   }
@@ -1372,6 +1377,9 @@
     padding: 2.5rem;
     max-width: var(--max-width);
     margin: 0 auto;
+    border-top: 1px solid var(--light-grey);
+    margin-top: 2rem;
+    background: rgba(248, 247, 244, 0.5);
   }
   
   .footer-inner {
