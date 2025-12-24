@@ -194,6 +194,7 @@
         const past = events.filter(e => !this.isUpcoming((e.event || e).start_at || (e.event || e).start_time));
 
         let html = '';
+        const rsvpNote = '<p class="events-rsvp">Please RSVP via Luma so we can plan for how many people are coming.</p>';
 
         if (upcoming.length > 0) {
           html += '<h2>Upcoming Events</h2>';
@@ -202,6 +203,7 @@
             html += this.renderEventCard(entry, false);
           });
           html += '</div>';
+          html += rsvpNote;
         }
 
         if (past.length > 0) {
