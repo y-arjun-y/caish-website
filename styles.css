@@ -1262,14 +1262,15 @@
   }
 
   .modal {
-    width: min(720px, 100%);
+    width: min(960px, 95vw);
     background: var(--white);
     border-radius: 16px;
     box-shadow: 0 24px 60px rgba(0, 0, 0, 0.2);
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    max-height: 80vh;
+    max-height: 90vh;
+    min-height: 70vh;
   }
 
   .modal-header {
@@ -1304,6 +1305,7 @@
     position: relative;
     flex: 1;
     background: var(--cream);
+    min-height: 60vh;
   }
 
   .modal-body iframe {
