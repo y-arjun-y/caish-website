@@ -535,7 +535,7 @@
 /* Socials Page Styles */
 .socials-section {
   padding-top: 3rem;
-  padding-bottom: 5rem;
+  padding-bottom: 3rem;
 }
 
 .socials-content h2 {
@@ -670,6 +670,7 @@
     padding: 5rem 2.5rem;
     max-width: none;
   }
+
   
   .cta-inner {
     max-width: var(--max-width);
@@ -691,6 +692,7 @@
     color: #a0a0a0;
     margin-bottom: 2rem;
   }
+
   
   .cta-image {
     display: flex;
@@ -706,6 +708,7 @@
     object-fit: contain;
     opacity: 0.15;
   }
+
   
   /* Page Header (About page) */
   .page-header {
@@ -1109,6 +1112,83 @@
   .expectation p {
     margin-bottom: 0;
     font-size: 0.8rem;
+  }
+
+  .expectation ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+    display: grid;
+    gap: 0.5rem;
+  }
+
+  .expectation ul li {
+    position: relative;
+    padding-left: 1rem;
+    font-size: 0.8rem;
+    color: var(--dark-grey);
+    line-height: 1.6;
+  }
+
+  .expectation ul li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: var(--mid-grey);
+  }
+
+  .expectations-section {
+    padding-top: 3rem;
+    padding-bottom: 4rem;
+  }
+
+  .expectations-section h2 {
+    margin-bottom: 1.5rem;
+  }
+
+  .expectations-list--three {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .expectations-footer {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .expectations-footer p {
+    max-width: none;
+  }
+
+  .text-link {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--dark-grey);
+    border-bottom: 1px solid rgba(74, 74, 74, 0.35);
+    width: fit-content;
+    transition: border-color 0.2s ease, color 0.2s ease;
+  }
+
+  .text-link:hover {
+    color: var(--black);
+    border-color: rgba(26, 26, 26, 0.6);
+  }
+
+  .socials-image {
+    max-width: none;
+    padding: 0 2.5rem 5rem;
+  }
+
+  .socials-image img {
+    width: 100%;
+    max-width: 620px;
+    margin: 0 auto;
+    display: block;
+    border-radius: 12px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+    object-fit: cover;
   }
   
   .fellowship-list {

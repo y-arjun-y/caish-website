@@ -44,20 +44,55 @@ export default async function handler(req, res) {
     // Luma events may have tags in different places depending on how they're configured
     let events = data.entries || data.events || [];
 
+    const normalizeTagName = (tag) => {
+      if (typeof tag === 'string') {
+        return tag;
+      }
+      if (tag && typeof tag.name === 'string') {
+        return tag.name;
+      }
+      return '';
+    };
+
+    const extractTagNames = (tags = []) =>
+      tags
+        .map(normalizeTagName)
+        .filter(Boolean)
+        .map(tag => tag.toUpperCase());
+
+    const hasCaishtag = (tagNames = []) =>
+      tagNames.some(tag => tag.includes('CAISH'));
+
     // Filter for events with CAISH tag (case-insensitive)
+    const tagDictionary = new Map();
+    const tagList = data.tags || data.tag_list || [];
+
+    tagList.forEach(tag => {
+      const id = tag?.api_id || tag?.id;
+      const name = normalizeTagName(tag);
+      if (id && name) {
+        tagDictionary.set(id, name);
+      }
+    });
+
     events = events.filter(entry => {
       const event = entry.event || entry;
-      const tags = event.tags || [];
+      const directTagNames = extractTagNames(event.tags || entry.tags || []);
+      const tagIds = event.tag_ids || entry.tag_ids || [];
+      const resolvedTagNames = tagIds
+        .map(tagId => tagDictionary.get(tagId))
+        .filter(Boolean)
+        .map(name => name.toUpperCase());
+      const allTags = [...directTagNames, ...resolvedTagNames];
       const name = event.name || '';
       const description = event.description || '';
 
-      // Check if CAISH appears in tags, name, or is generally associated
-      const hasCAISHTag = tags.some(tag =>
-        (typeof tag === 'string' && tag.toUpperCase().includes('CAISH')) ||
-        (tag.name && tag.name.toUpperCase().includes('CAISH'))
+      // Check if CAISH appears in tags, name, or description
+      return (
+        hasCaishtag(allTags) ||
+        name.toUpperCase().includes('CAISH') ||
+        description.toUpperCase().includes('CAISH')
       );
-
-      return hasCAISHTag || name.toUpperCase().includes('CAISH') || events.length > 0;
     });
 
     // Sort by start time (upcoming first)

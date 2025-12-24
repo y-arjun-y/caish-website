@@ -164,7 +164,7 @@
         if (!container) return;
 
         try {
-          const response = await fetch('/api/events?limit=3');
+          const response = await fetch('/.netlify/functions/events?limit=3');
           const data = await response.json();
 
           if (!response.ok) {

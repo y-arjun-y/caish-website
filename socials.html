@@ -70,18 +70,42 @@
     </div>
   </section>
 
-  <section id="join" class="cta">
-    <div class="cta-inner">
-      <div>
-        <span class="label">Stay Connected</span>
-        <h2>Never miss an event</h2>
-        <p>Join our community to receive updates about upcoming socials, speaker events, and special gatherings.</p>
-        <a href="#" class="btn">Join CAISH</a>
+  <section class="expectations-section">
+    <span class="label">Community expectations</span>
+    <h2>Community Expectations</h2>
+    <div class="expectations-list expectations-list--three">
+      <div class="expectation">
+        <h4>Be considerate</h4>
+        <ul>
+          <li>Be mindful of how your words and actions affect others.</li>
+          <li>Don’t interrupt, dominate discussions, or shame others.</li>
+          <li>Take responsibility for impact, even when harm is unintentional.</li>
+        </ul>
       </div>
-      <div class="cta-image">
-        <img src="/images/footer-logo.png" alt="CAISH logo">
+      <div class="expectation">
+        <h4>Keep the space accessible</h4>
+        <ul>
+          <li>Avoid unnecessary jargon; explain acronyms and references.</li>
+          <li>Make room for newcomers and different perspectives.</li>
+          <li>Complex problems rarely have a single correct answer.</li>
+        </ul>
+      </div>
+      <div class="expectation">
+        <h4>Harm isn’t tolerated</h4>
+        <ul>
+          <li>Unwanted sexual attention, aggression, or belittling behaviour is not acceptable.</li>
+          <li>Don’t make others feel small, excluded, or unsafe.</li>
+          <li>If you see something concerning, please reach out.</li>
+        </ul>
       </div>
     </div>
+    <div class="expectations-footer">
+      <p>If you'd like to reach out about a community health concern please email community (at) caish (dot) org or you can use our anonymous form.</p>
+    </div>
+  </section>
+
+  <section class="socials-image">
+    <img src="/images/lunch.png" alt="Two people chatting at a CAISH social">
   </section>
 
   <footer>
@@ -114,7 +138,7 @@
         if (!container) return;
 
         try {
-          const response = await fetch('/api/events');
+          const response = await fetch('/.netlify/functions/events');
           const data = await response.json();
 
           if (!response.ok) {
