@@ -132,6 +132,9 @@
 
     // Events Loading
     const EventsLoader = {
+      dateOpts: { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' },
+      timeOpts: { hour: '2-digit', minute: '2-digit' },
+
       escapeHtml(unsafe) {
         if (typeof unsafe !== 'string') return '';
         return unsafe
@@ -140,6 +143,16 @@
           .replace(/>/g, '&gt;')
           .replace(/"/g, '&quot;')
           .replace(/'/g, '&#039;');
+      },
+
+      sanitizeUrl(url) {
+        if (!url || typeof url !== 'string') return '#';
+        try {
+          const parsed = new URL(url, window.location.origin);
+          return ['http:', 'https:'].includes(parsed.protocol) ? url : '#';
+        } catch {
+          return '#';
+        }
       },
 
       async init() {
@@ -166,22 +179,11 @@
       },
 
       formatDate(dateString) {
-        const date = new Date(dateString);
-        const options = {
-          weekday: 'long',
-          year: 'numeric',
-          month: 'long',
-          day: 'numeric'
-        };
-        return date.toLocaleDateString('en-GB', options);
+        return new Date(dateString).toLocaleDateString('en-GB', this.dateOpts);
       },
 
       formatTime(dateString) {
-        const date = new Date(dateString);
-        return date.toLocaleTimeString('en-GB', {
-          hour: '2-digit',
-          minute: '2-digit'
-        });
+        return new Date(dateString).toLocaleTimeString('en-GB', this.timeOpts);
       },
 
       isUpcoming(dateString) {
@@ -198,9 +200,15 @@
           return;
         }
 
-        // Separate upcoming and past events
-        const upcoming = events.filter(e => this.isUpcoming((e.event || e).start_at || (e.event || e).start_time));
-        const past = events.filter(e => !this.isUpcoming((e.event || e).start_at || (e.event || e).start_time));
+        // Separate upcoming and past events (single pass)
+        const now = new Date();
+        const upcoming = [];
+        const past = [];
+        for (const e of events) {
+          const evt = e.event || e;
+          const startTime = new Date(evt.start_at || evt.start_time);
+          (startTime >= now ? upcoming : past).push(e);
+        }
 
         let html = '';
         const rsvpNote = '<p class="events-rsvp">Please RSVP via Luma so we can plan for how many people are coming.</p>';
@@ -241,7 +249,8 @@
         const description = event.description || '';
         const startAt = event.start_at || event.start_time;
         const endAt = event.end_at || event.end_time;
-        const url = event.url || (event.api_id ? `https://lu.ma/${event.api_id}` : '#');
+        const rawUrl = event.url || (event.api_id ? `https://lu.ma/${event.api_id}` : '#');
+        const url = this.sanitizeUrl(rawUrl);
         const coverUrl = event.cover_url || event.cover_image_url || '';
         const location = event.geo_address_info?.city || event.location || 'Cambridge';
 
