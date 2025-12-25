@@ -1642,13 +1642,12 @@
   /* MARS Application */
   .mars-application {
     margin-top: 3rem;
-    padding-top: 2.5rem;
+    padding: 2.5rem 2rem;
     border-top: 1px solid var(--light-grey);
     clear: both;
     text-align: center;
     background: rgba(250, 246, 240, 0.7);
     border-radius: 12px;
-    padding-bottom: 2.5rem;
     box-shadow: 0 16px 28px rgba(0, 0, 0, 0.06);
   }
   
@@ -1993,6 +1992,10 @@
   
     .mars-section {
       padding-top: 1rem;
+    }
+
+    .mars-application {
+      padding: 2rem 1.5rem;
     }
   
     .journey-card {
