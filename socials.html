@@ -23,6 +23,7 @@
   <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
   <nav>
     <div class="nav-inner">
       <a href="/" aria-label="Home">
@@ -52,7 +53,8 @@
     </ul>
   </div>
 
-  <section class="page-header">
+  <main>
+  <section class="page-header" id="main-content">
     <span class="label">Community</span>
     <h1>Socials & Events</h1>
     <p>Join us for regular socials, speaker events, hackathons, and community gatherings. Find companions as you tackle the challenges of AI safety together.</p>
@@ -104,15 +106,16 @@
   </section>
 
   <section class="socials-image">
-    <img src="/images/community.png">
+    <img src="/images/community.png" alt="CAISH community members at a social event" loading="lazy">
   </section>
+  </main>
 
   <footer>
     <div class="footer-inner">
       <div class="footer-legal">
         Cambridge AI Safety Hub is a project of <a href="https://find-and-update.company-information.service.gov.uk/company/13653958" target="_blank" rel="noopener">Meridian Impact CIC</a>, a Community Interest Company registered at Companies House (company number 13653958).
       </div>
-      <span class="footer-copy">&copy; 2026 CAISH</span>
+      <span class="footer-copy">&copy; 2025 CAISH</span>
     </div>
   </footer>
 
@@ -132,6 +135,16 @@
 
     // Events Loading
     const EventsLoader = {
+      escapeHtml(unsafe) {
+        if (typeof unsafe !== 'string') return '';
+        return unsafe
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;')
+          .replace(/"/g, '&quot;')
+          .replace(/'/g, '&#039;');
+      },
+
       async init() {
         const container = document.getElementById('events-container');
         if (!container) return;
@@ -240,17 +253,17 @@
         const endTimeStr = endAt ? this.formatTime(endAt) : '';
 
         return `
-          <a href="${url}" target="_blank" rel="noopener" class="event-card ${isPast ? 'past' : ''}">
-            ${coverUrl ? `<div class="event-cover"><img src="${coverUrl}" alt="" loading="lazy"></div>` : ''}
+          <a href="${this.escapeHtml(url)}" target="_blank" rel="noopener" class="event-card ${isPast ? 'past' : ''}">
+            ${coverUrl ? `<div class="event-cover"><img src="${this.escapeHtml(coverUrl)}" alt="${this.escapeHtml(name)}" loading="lazy"></div>` : ''}
             <div class="event-content">
               <div class="event-date">
-                <span class="event-day">${dateStr}</span>
-                <span class="event-time">${timeStr}${endTimeStr ? ' - ' + endTimeStr : ''}</span>
+                <span class="event-day">${this.escapeHtml(dateStr)}</span>
+                <span class="event-time">${this.escapeHtml(timeStr)}${endTimeStr ? ' - ' + this.escapeHtml(endTimeStr) : ''}</span>
               </div>
-              <h3 class="event-title">${name}</h3>
-              ${description ? `<p class="event-description">${description.substring(0, 150)}${description.length > 150 ? '...' : ''}</p>` : ''}
+              <h3 class="event-title">${this.escapeHtml(name)}</h3>
+              ${description ? `<p class="event-description">${this.escapeHtml(description.substring(0, 150))}${description.length > 150 ? '...' : ''}</p>` : ''}
               <div class="event-meta">
-                <span class="event-location">${location}</span>
+                <span class="event-location">${this.escapeHtml(location)}</span>
                 <span class="event-link">View on Luma</span>
               </div>
             </div>

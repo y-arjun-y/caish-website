@@ -23,6 +23,7 @@
   <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
   <nav>
     <div class="nav-inner">
       <a href="/" aria-label="Home">
@@ -30,7 +31,7 @@
       </a>
       <ul class="nav-links">
         <li><a href="/fellowship">Alignment Fellowship</a></li>
-        <li><a href="/mars">MARS</a></li>
+        <li><a href="/mars" class="active">MARS</a></li>
         <li><a href="/socials">Socials</a></li>
         <li><a href="/about">About</a></li>
       </ul>
@@ -46,14 +47,15 @@
     <button class="mobile-nav-close" aria-label="Close menu" id="mobile-nav-close">&times;</button>
     <ul>
       <li><a href="/fellowship">Alignment Fellowship</a></li>
-      <li><a href="/mars">MARS</a></li>
+      <li><a href="/mars" class="active">MARS</a></li>
       <li><a href="/socials">Socials</a></li>
       <li><a href="/about">About</a></li>
     </ul>
   </div>
 
-  <div class="mars-hero-image">
-    <img src="/images/hero.png" alt="Figure standing on Mars landscape">
+  <main>
+  <div class="mars-hero-image" id="main-content">
+    <img src="/images/hero.png" alt="Figure standing on Mars landscape" loading="lazy">
   </div>
 
   <section class="page-header mars-header">
@@ -104,7 +106,7 @@
       </div>
 
       <div class="mars-working-image">
-        <img src="/images/mars-working.png" loading="lazy">
+        <img src="/images/mars-working.png" alt="MARS mentees collaborating on AI safety research" loading="lazy">
       </div>
 
       <h2>Previous Mentors</h2>
@@ -112,37 +114,37 @@
       
       <div class="mentors-grid">
         <div class="mentor">
-          <img src="/images/tracy.png" alt="Tyler Tracy" class="mentor-photo">
+          <img src="/images/tracy.png" alt="Tyler Tracy" class="mentor-photo" loading="lazy">
           <h4>Tyler Tracy</h4>
           <p class="mentor-org">Redwood Research</p>
           <p class="mentor-area">AI Control</p>
         </div>
         <div class="mentor">
-          <img src="/images/weil.png" alt="Gabriel Weil" class="mentor-photo">
+          <img src="/images/weil.png" alt="Gabriel Weil" class="mentor-photo" loading="lazy">
           <h4>Gabriel Weil</h4>
           <p class="mentor-org">Touro University Law Center / LawAI</p>
           <p class="mentor-area">AI Liability and Insurance</p>
         </div>
         <div class="mentor">
-          <img src="/images/logan.png" alt="Logan Riggs-Smith" class="mentor-photo">
+          <img src="/images/logan.png" alt="Logan Riggs-Smith" class="mentor-photo" loading="lazy">
           <h4>Logan Riggs-Smith</h4>
           <p class="mentor-org">Independent</p>
           <p class="mentor-area">Mechanistic Interpretability</p>
         </div>
         <div class="mentor">
-          <img src="/images/gentzel.png" alt="Matthew Gentzel" class="mentor-photo">
+          <img src="/images/gentzel.png" alt="Matthew Gentzel" class="mentor-photo" loading="lazy">
           <h4>Matthew Gentzel</h4>
           <p class="mentor-org">Longview Philanthropy</p>
           <p class="mentor-area">AGI Preparedness</p>
         </div>
         <div class="mentor">
-          <img src="/images/erich.png" alt="Erich Grunewald" class="mentor-photo">
+          <img src="/images/erich.png" alt="Erich Grunewald" class="mentor-photo" loading="lazy">
           <h4>Erich Grunewald</h4>
           <p class="mentor-org">Institute for AI Policy and Strategy</p>
           <p class="mentor-area">Compute Governance</p>
         </div>
         <div class="mentor">
-          <img src="/images/kola.png" alt="Kola Ayonrinde" class="mentor-photo">
+          <img src="/images/kola.png" alt="Kola Ayonrinde" class="mentor-photo" loading="lazy">
           <h4>Kola Ayonrinde</h4>
           <p class="mentor-org">UK AI Security Institute</p>
           <p class="mentor-area">Mechanistic Interpretability</p>
@@ -226,14 +228,15 @@
       </div>
     </div>
   </div>
+  </main>
 
   <footer>
     <div class="footer-inner">
       <div class="footer-legal">
         Cambridge AI Safety Hub is a project of <a href="https://find-and-update.company-information.service.gov.uk/company/13653958" target="_blank" rel="noopener">Meridian Impact CIC</a>, a Community Interest Company registered at Companies House (company number 13653958).
       </div>
-      <span class="footer-copy">&copy; 2026 CAISH</span>
-      <p>Click <a href = "/images/surprise.JPG">here</a> for a surprise.</p>
+      <span class="footer-copy">&copy; 2025 CAISH</span>
+      <p>Click <a href="/images/surprise.JPG">here</a> for a surprise.</p>
     </div>
   </footer>
 

@@ -23,6 +23,7 @@
   <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
   <nav>
     <div class="nav-inner">
       <a href="/" aria-label="Home">
@@ -52,14 +53,15 @@
     </ul>
   </div>
 
-  <section class="hero">
+  <main>
+  <section class="hero" id="main-content">
     <div class="hero-content">
       <span class="label">Cambridge AI Safety Hub</span>
       <h1>Building the AI Safety Community in <em>Cambridge</em></h1>
       <p>A hub bringing together students and professionals to reduce existential risks from superintelligent AI systems.</p>
     </div>
     <div class="hero-image">
-      <img src="/images/lines.png">
+      <img src="/images/lines.png" alt="Abstract geometric pattern representing AI safety network">
     </div>
   </section>
 
@@ -73,7 +75,7 @@
       <p>By bringing together the brightest minds in Cambridge, we aim to accelerate technical alignment research and promote thoughtful governance strategies.</p>
     </div>
     <div class="mission-image">
-      <img src="/images/punting.png" alt="Punting on the River Cam">
+      <img src="/images/punting.png" alt="Punting on the River Cam" loading="lazy">
     </div>
   </section>
 
@@ -131,17 +133,18 @@
         <a href="https://share-eu1.hsforms.com/2KPfUeCBRQI-OBE-kSQXfuQ2fgt25" class="btn">Sign up to our mailing list</a>
       </div>
       <div class="cta-image">
-        <img src="/images/footer-logo.png" alt="CAISH logo">
+        <img src="/images/footer-logo.png" alt="CAISH logo" loading="lazy">
       </div>
     </div>
   </section>
+  </main>
 
   <footer>
     <div class="footer-inner">
       <div class="footer-legal">
         Cambridge AI Safety Hub is a project of <a href="https://find-and-update.company-information.service.gov.uk/company/13653958" target="_blank" rel="noopener">Meridian Impact CIC</a>, a Community Interest Company registered at Companies House (company number 13653958).
       </div>
-      <span class="footer-copy">&copy; 2026 CAISH</span>
+      <span class="footer-copy">&copy; 2025 CAISH</span>
     </div>
   </footer>
 
@@ -159,6 +162,16 @@
     };
 
     const HomeEvents = {
+      escapeHtml(unsafe) {
+        if (typeof unsafe !== 'string') return '';
+        return unsafe
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;')
+          .replace(/"/g, '&quot;')
+          .replace(/'/g, '&#039;');
+      },
+
       async init() {
         const container = document.getElementById('home-events-container');
         if (!container) return;
@@ -218,14 +231,14 @@
           const location = event.geo_address_info?.city || event.location || 'Cambridge';
 
           html += `
-            <a href="${url}" target="_blank" rel="noopener" class="home-event-item">
+            <a href="${this.escapeHtml(url)}" target="_blank" rel="noopener" class="home-event-item">
               <div class="home-event-date">
-                <span class="home-event-day">${this.formatDate(startAt)}</span>
-                <span class="home-event-time">${this.formatTime(startAt)}</span>
+                <span class="home-event-day">${this.escapeHtml(this.formatDate(startAt))}</span>
+                <span class="home-event-time">${this.escapeHtml(this.formatTime(startAt))}</span>
               </div>
               <div class="home-event-info">
-                <h3 class="home-event-title">${name}</h3>
-                <span class="home-event-location">${location}</span>
+                <h3 class="home-event-title">${this.escapeHtml(name)}</h3>
+                <span class="home-event-location">${this.escapeHtml(location)}</span>
               </div>
               <span class="home-event-arrow">&rarr;</span>
             </a>
