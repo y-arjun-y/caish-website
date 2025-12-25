@@ -62,11 +62,10 @@ exports.handler = async (event) => {
       const errorText = await response.text();
       console.error('Luma API error:', response.status, errorText);
       return {
-        statusCode: response.status,
+        statusCode: 503,
         headers,
         body: JSON.stringify({
-          error: 'Failed to fetch events from Luma',
-          details: errorText
+          error: 'Unable to load events at this time. Please try again later.'
         })
       };
     }
@@ -118,11 +117,18 @@ exports.handler = async (event) => {
       return startDate >= oneWeekAgo;
     });
 
-    const limit = event.queryStringParameters?.limit
-      ? Number.parseInt(event.queryStringParameters.limit, 10)
-      : null;
+    // Validate and sanitize limit parameter (max 100 events)
+    const MAX_LIMIT = 100;
+    let limit = null;
 
-    if (limit && limit > 0) {
+    if (event.queryStringParameters?.limit) {
+      const parsedLimit = Number.parseInt(event.queryStringParameters.limit, 10);
+      if (!Number.isNaN(parsedLimit) && parsedLimit > 0) {
+        limit = Math.min(parsedLimit, MAX_LIMIT);
+      }
+    }
+
+    if (limit) {
       events = events.slice(0, limit);
     }
 
@@ -141,8 +147,7 @@ exports.handler = async (event) => {
       statusCode: 500,
       headers,
       body: JSON.stringify({
-        error: 'Internal server error',
-        message: error.message
+        error: 'Unable to load events at this time. Please try again later.'
       })
     };
   }
