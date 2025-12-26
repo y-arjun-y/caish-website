@@ -1210,6 +1210,10 @@
     grid-template-columns: repeat(3, 1fr);
   }
 
+  .expectations-list--single {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
   .expectations-footer {
     margin-top: 2rem;
     display: flex;
