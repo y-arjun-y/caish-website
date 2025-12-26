@@ -366,11 +366,65 @@
     justify-content: flex-end;
   }
   
-  .hero-image img {
+  .hero-image img,
+  .hero-hourglass {
     width: 100%;
     height: auto;
     max-height: 400px;
     object-fit: contain;
+  }
+
+  .hero-hourglass {
+    max-width: 320px;
+  }
+
+  .hourglass-lines {
+    animation: hourglass-fade 6s ease-in-out infinite;
+  }
+
+  .hourglass-path {
+    fill: none;
+    stroke: #111;
+    stroke-width: 7;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: 420;
+    stroke-dashoffset: 420;
+    animation: hourglass-draw 6s ease-in-out infinite;
+  }
+
+  .hourglass-path.path-2 { animation-delay: 0.3s; }
+  .hourglass-path.path-3 { animation-delay: 0.6s; }
+  .hourglass-path.path-4 { animation-delay: 0.9s; }
+
+  @keyframes hourglass-draw {
+    0% {
+      stroke-dashoffset: 420;
+    }
+    45% {
+      stroke-dashoffset: 0;
+    }
+    70% {
+      stroke-dashoffset: 0;
+    }
+    100% {
+      stroke-dashoffset: -420;
+    }
+  }
+
+  @keyframes hourglass-fade {
+    0%,
+    10% {
+      opacity: 0;
+    }
+    30%,
+    70% {
+      opacity: 1;
+    }
+    90%,
+    100% {
+      opacity: 0;
+    }
   }
   
   /* Mission */
