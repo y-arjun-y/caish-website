@@ -366,11 +366,47 @@
     justify-content: flex-end;
   }
   
-  .hero-image img {
+  .hero-image img,
+  .hero-hourglass {
     width: 100%;
     height: auto;
-    max-height: 400px;
+    max-height: 260px;
     object-fit: contain;
+  }
+
+  .hero-hourglass {
+    max-width: 240px;
+  }
+
+  .hourglass-path {
+    fill: none;
+    stroke: #111;
+    stroke-width: 7;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    filter: url(#roughen);
+    stroke-dasharray: 100;
+    stroke-dashoffset: 100;
+    animation: hourglass-draw 12s ease-in-out infinite;
+  }
+
+  .hourglass-path.path-2 { animation-delay: 0.3s; }
+  .hourglass-path.path-3 { animation-delay: 0.6s; }
+  .hourglass-path.path-4 { animation-delay: 0.9s; }
+
+  @keyframes hourglass-draw {
+    0% {
+      stroke-dashoffset: 100;
+    }
+    50% {
+      stroke-dashoffset: 0;
+    }
+    95% {
+      stroke-dashoffset: 0;
+    }
+    100% {
+      stroke-dashoffset: 100;
+    }
   }
   
   /* Mission */
