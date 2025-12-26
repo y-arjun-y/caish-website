@@ -1256,6 +1256,7 @@
   .expectations-list--single .expectation {
     border-left: none;
     padding: 1.75rem 2rem;
+    text-align: center;
   }
 
   .expectations-list--single .expectation h4 {
@@ -1264,6 +1265,11 @@
 
   .expectations-list--single .expectation ul li {
     font-size: 0.9rem;
+    padding-left: 0;
+  }
+
+  .expectations-list--single .expectation ul li::before {
+    content: none;
   }
 
   .expectations-footer {
