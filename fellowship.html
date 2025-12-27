@@ -1,245 +1,474 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="The Alignment Fellowship - A 6-week programme to understand AI safety and how you can contribute.">
-  <title>Alignment Fellowship | Cambridge AI Safety Hub</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="The Alignment Fellowship - A 6-week programme to understand AI safety and how you can contribute."
+    />
+    <title>Alignment Fellowship | Cambridge AI Safety Hub</title>
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="/images/favicon.png">
-  <link rel="apple-touch-icon" href="/images/favicon.png">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/images/favicon.png" />
+    <link rel="apple-touch-icon" href="/images/favicon.png" />
 
-  <!-- Preload critical resources -->
-  <link rel="preload" href="/styles.css" as="style">
-  <link rel="preload" href="/images/logo.png" as="image">
+    <!-- Preload critical resources -->
+    <link rel="preload" href="/styles.css" as="style" />
+    <link rel="preload" href="/images/logo.png" as="image" />
 
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Space+Mono:wght@400&display=swap" rel="stylesheet">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Space+Mono:wght@400&display=swap"
+      rel="stylesheet"
+    />
 
-  <!-- Styles -->
-  <link rel="stylesheet" href="/styles.css">
-</head>
-<body>
-  <a href="#main-content" class="skip-link">Skip to main content</a>
-  <nav>
-    <div class="nav-inner">
-      <a href="/" aria-label="Home">
-        <img src="/images/logo.png" alt="CAISH" class="logo" width="50" height="50">
-      </a>
-      <ul class="nav-links">
+    <!-- Styles -->
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <nav>
+      <div class="nav-inner">
+        <a href="/" aria-label="Home">
+          <img
+            src="/images/logo.png"
+            alt="CAISH"
+            class="logo"
+            width="50"
+            height="50"
+          />
+        </a>
+        <ul class="nav-links">
+          <li><a href="/fellowship" class="active">Alignment Fellowship</a></li>
+          <li><a href="/mars">MARS</a></li>
+          <li><a href="/socials">Socials</a></li>
+          <li><a href="/about">About</a></li>
+        </ul>
+        <button class="nav-toggle" aria-label="Open menu" id="nav-toggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </nav>
+
+    <div id="mobile-nav" class="mobile-nav">
+      <button
+        class="mobile-nav-close"
+        aria-label="Close menu"
+        id="mobile-nav-close"
+      >
+        &times;
+      </button>
+      <ul>
         <li><a href="/fellowship" class="active">Alignment Fellowship</a></li>
         <li><a href="/mars">MARS</a></li>
         <li><a href="/socials">Socials</a></li>
         <li><a href="/about">About</a></li>
       </ul>
-      <button class="nav-toggle" aria-label="Open menu" id="nav-toggle">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
     </div>
-  </nav>
 
-  <div id="mobile-nav" class="mobile-nav">
-    <button class="mobile-nav-close" aria-label="Close menu" id="mobile-nav-close">&times;</button>
-    <ul>
-      <li><a href="/fellowship" class="active">Alignment Fellowship</a></li>
-      <li><a href="/mars">MARS</a></li>
-      <li><a href="/socials">Socials</a></li>
-      <li><a href="/about">About</a></li>
-    </ul>
-  </div>
+    <main>
+      <section class="page-header fellowship-header" id="main-content">
+        <h1>The Alignment Fellowship</h1>
+        <p class="fellowship-tagline">
+          <em>How do we navigate the next decade safely?</em>
+        </p>
+      </section>
 
-  <main>
-  <section class="page-header fellowship-header" id="main-content">
-    <h1>The Alignment Fellowship</h1>
-    <p class="fellowship-tagline"><em>How do we navigate the next decade safely?</em></p>
-  </section>
+      <div class="divider"><div class="divider-line"></div></div>
 
-  <div class="divider"><div class="divider-line"></div></div>
+      <section class="fellowship-section">
+        <div class="fellowship-content">
+          <div class="fellowship-image">
+            <img
+              src="/images/capabilities.png"
+              alt="Diagram showing AI capability growth outpacing human capability"
+              loading="lazy"
+            />
+            <p class="image-credit">
+              <a
+                href="https://x.com/tomaspueyo/status/1993360931267473662"
+                target="_blank"
+                rel="noopener"
+                >The</a
+              >
+              <a
+                href="https://x.com/colin_fraser/status/1994188009608983008"
+                target="_blank"
+                rel="noopener"
+                >Jaggered</a
+              >
+              <a
+                href="https://www.lesswrong.com/posts/Q9ewXs8pQSAX5vL7H/ai-in-2025-gestalt"
+                target="_blank"
+                rel="noopener"
+                >Frontier</a
+              >
+            </p>
+          </div>
 
-  <section class="fellowship-section">
-    <div class="fellowship-content">
-      <div class="fellowship-image">
-        <img src="/images/capabilities.png" alt="Diagram showing AI capability growth outpacing human capability" loading="lazy">
-        <p class="image-credit"><a href="https://x.com/tomaspueyo/status/1993360931267473662" target="_blank" rel="noopener">The</a> <a href="https://x.com/colin_fraser/status/1994188009608983008" target="_blank" rel="noopener">Jaggered</a> <a href="https://www.lesswrong.com/posts/Q9ewXs8pQSAX5vL7H/ai-in-2025-gestalt" target="_blank" rel="noopener">Frontier</a></p>
+          <p>
+            Advanced AI systems are improving rapidly. Within years—not
+            decades—we may create systems more capable than humans across most
+            domains. If that happens, the consequences will be profound. In the
+            best case, we solve problems we've struggled with for centuries.
+            <strong class="highlight"
+              >In the worst case, we lose control entirely.</strong
+            >
+          </p>
+          <p>
+            The field working to prevent that worst case is called
+            <strong>AI safety</strong>. It's small, it's young, and
+            <strong class="highlight">it needs more people.</strong>
+          </p>
+
+          <h2>What the fellowship is</h2>
+          <p>
+            The Alignment Fellowship is a <strong>6-week programme</strong> with
+            two tracks: technical and governance. Both tracks share foundational
+            content—understanding how AI systems might become misaligned with
+            human goals, how they might acquire power, and what's at stake if
+            they do. Beyond that, each track takes a different approach:
+          </p>
+
+          <div class="fellowship-tracks">
+            <div class="track">
+              <h3>Technical track (Nanda)</h3>
+              <p class="track-note">
+                Named after Neel Nanda, a leading mechanistic interpretability
+                researcher who works at Google DeepMind. Neel did his degree in
+                Mathematics at Cambridge.
+              </p>
+              <p>
+                Best suited for those with backgrounds in computer science,
+                mathematics, physics, or other quantitative fields—though this
+                isn't a strict requirement. Several people in the field with
+                non-technical backgrounds have gone on to do technical AI safety
+                work. If you're interested in the technical side and willing to
+                engage with the material, apply.
+              </p>
+              <p><strong>What you'll cover:</strong></p>
+              <ul>
+                <li>
+                  <strong>Timelines & stakes</strong> — How quickly are AI
+                  capabilities advancing? What does it mean for AI systems to be
+                  misaligned with human goals?
+                </li>
+                <li>
+                  <strong>Training & alignment techniques</strong> — RLHF,
+                  Constitutional AI, and how current systems are trained to
+                  follow instructions
+                </li>
+                <li>
+                  <strong>Deception & evaluation</strong> — Alignment faking,
+                  sandbagging, jailbreaking, and the challenge of evaluating
+                  systems that might deceive us
+                </li>
+                <li>
+                  <strong>Control & oversight</strong> — How do we use powerful
+                  AI systems safely? Scalable oversight, debate, and the control
+                  paradigm
+                </li>
+                <li>
+                  <strong>Interpretability</strong> — Understanding what's
+                  happening inside neural networks, and whether this helps with
+                  safety
+                </li>
+              </ul>
+            </div>
+            <div class="track">
+              <h3>Governance track (Anderljung)</h3>
+              <p class="track-note">
+                Named after Markus Anderljung, director of Policy and Research
+                at the Centre for the Governance of AI. Markus did his degree in
+                Natural Sciences at Cambridge.
+              </p>
+              <p>
+                Best suited for those interested in policy, international
+                relations, law, or the political economy of technology—though
+                again, not a strict requirement.
+              </p>
+              <p><strong>What you'll cover:</strong></p>
+              <ul>
+                <li>
+                  <strong>Technical foundations</strong> — A non-technical
+                  introduction to deep learning, LLMs, and RLHF (enough to
+                  understand what you're governing)
+                </li>
+                <li>
+                  <strong>AI risk & timelines</strong> — Arguments for why AI
+                  safety is important and urgent
+                </li>
+                <li>
+                  <strong>China & compute governance</strong> — China's AI
+                  strategy, and how controlling compute might shape AI
+                  development
+                </li>
+                <li>
+                  <strong>US policy & responsible scaling</strong> — The US
+                  regulatory landscape, and how labs like Anthropic are
+                  approaching safety commitments
+                </li>
+                <li>
+                  <strong>EU & geopolitics</strong> — The EU AI Act,
+                  international coordination, and the strategic landscape
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <p>
+            Each week, you'll do assigned readings and meet to discuss them with
+            a small cohort. Alongside that:
+          </p>
+
+          <div class="fellowship-features">
+            <div class="feature">
+              <h4>Talks & Workshops</h4>
+              <p>
+                From researchers at Redwood Research, UK AI Security Institute,
+                Apollo Research and more.
+              </p>
+            </div>
+            <div class="feature">
+              <h4>Career Planning</h4>
+              <p>
+                One-on-one sessions to help you understand your next steps
+                towards an AI safety career.
+              </p>
+            </div>
+            <div class="feature">
+              <h4>ERA Fellows</h4>
+              <p>
+                Chance to interact with ERA:AI and ERA:AIxBiosecurity Fellows,
+                two flagship research programmes based in Cambridge where you
+                can find collaborators.
+              </p>
+            </div>
+          </div>
+
+          <p>
+            The programme runs <strong>in-person in Cambridge, UK</strong>.
+            Dinner will be provided for each session.<br />Dates for the Lent
+            cohort will be announced soon.
+          </p>
+
+          <h2>Who it's for</h2>
+          <p>
+            You don't need a technical background. You don't need to already
+            understand AI safety. You do need genuine curiosity about how
+            advanced AI could go wrong—and
+            <strong class="highlight"
+              >a willingness to take that possibility seriously.</strong
+            >
+          </p>
+
+          <h3>What we expect from you</h3>
+          <p>
+            We invest significant time and resources into each cohort: talks
+            from leading researchers, one-on-one career support, dinners, and
+            access to the Cambridge AI safety community. In return, we ask that
+            you invest too.
+          </p>
+
+          <div class="expectations-list">
+            <div class="expectation">
+              <h4>Do the readings</h4>
+              <p>
+                Each week has core readings and optional deeper dives. We expect
+                you to complete the core readings before each session and come
+                ready to discuss them.
+              </p>
+            </div>
+            <div class="expectation">
+              <h4>Show up</h4>
+              <p>Attend the sessions, talks, and workshops we organise.</p>
+            </div>
+            <div class="expectation">
+              <h4>Engage seriously</h4>
+              <p>
+                This is your chance to figure out whether AI safety matters to
+                you, what role you might play, and who else is working on it.
+              </p>
+            </div>
+          </div>
+
+          <p>
+            <strong
+              >If this isn't the right time to commit fully, that's completely
+              fine—apply for a future cohort when you can.</strong
+            >
+            In the meantime, we run public talks and
+            <a href="/socials" class="inline-link">socials</a> throughout the
+            year, and we'd love to have you there.
+          </p>
+
+          <div class="fellowship-application">
+            <h2>Application process</h2>
+            <p>
+              Details are still being finalised and may change. We expect to
+              open applications for Lent Term soon, with more information on the
+              process to follow.
+            </p>
+            <div class="btn-wrapper">
+              <button
+                class="btn-primary"
+                type="button"
+                id="open-fellowship-modal"
+              >
+                Expression of Interest
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="modal-overlay" id="fellowship-modal" aria-hidden="true">
+        <div
+          class="modal"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="fellowship-title"
+        >
+          <div class="modal-header">
+            <h3 id="fellowship-title">
+              Alignment Fellowship Expression of Interest
+            </h3>
+            <button
+              class="modal-close"
+              type="button"
+              aria-label="Close form"
+              id="close-fellowship-modal"
+            >
+              &times;
+            </button>
+          </div>
+          <div class="modal-body">
+            <iframe
+              data-tally-src="https://tally.so/r/mJQ7yY"
+              title="The Alignment Fellowship -- Expression of Interest"
+              frameborder="0"
+              marginheight="0"
+              marginwidth="0"
+            ></iframe>
+          </div>
+        </div>
       </div>
+    </main>
 
-      <p>Advanced AI systems are improving rapidly. Within years—not decades—we may create systems more capable than humans across most domains. If that happens, the consequences will be profound. In the best case, we solve problems we've struggled with for centuries. <strong class="highlight">In the worst case, we lose control entirely.</strong></p>
-      <p>The field working to prevent that worst case is called <strong>AI safety</strong>. It's small, it's young, and <strong class="highlight">it needs more people.</strong></p>
-
-      <h2>What the fellowship is</h2>
-      <p>The Alignment Fellowship is a <strong>6-week programme</strong> with two tracks: technical and governance. Both tracks share foundational content—understanding how AI systems might become misaligned with human goals, how they might acquire power, and what's at stake if they do. Beyond that, each track takes a different approach:</p>
-      
-      <div class="fellowship-tracks">
-        <div class="track">
-          <h3>Technical track (Nanda)</h3>
-          <p class="track-note">Named after Neel Nanda, a leading mechanistic interpretability researcher who works at Google DeepMind. Neel did his degree in Mathematics at Cambridge.</p>
-          <p>Best suited for those with backgrounds in computer science, mathematics, physics, or other quantitative fields—though this isn't a strict requirement. Several people in the field with non-technical backgrounds have gone on to do technical AI safety work. If you're interested in the technical side and willing to engage with the material, apply.</p>
-          <p><strong>What you'll cover:</strong></p>
-          <ul>
-            <li><strong>Timelines & stakes</strong> — How quickly are AI capabilities advancing? What does it mean for AI systems to be misaligned with human goals?</li>
-            <li><strong>Training & alignment techniques</strong> — RLHF, Constitutional AI, and how current systems are trained to follow instructions</li>
-            <li><strong>Deception & evaluation</strong> — Alignment faking, sandbagging, jailbreaking, and the challenge of evaluating systems that might deceive us</li>
-            <li><strong>Control & oversight</strong> — How do we use powerful AI systems safely? Scalable oversight, debate, and the control paradigm</li>
-            <li><strong>Interpretability</strong> — Understanding what's happening inside neural networks, and whether this helps with safety</li>
-          </ul>
+    <footer>
+      <div class="footer-inner">
+        <div class="footer-legal">
+          Cambridge AI Safety Hub is a project of
+          <a
+            href="https://find-and-update.company-information.service.gov.uk/company/13653958"
+            target="_blank"
+            rel="noopener"
+            >Meridian Impact CIC</a
+          >, a Community Interest Company registered at Companies House (company
+          number 13653958).
         </div>
-        <div class="track">
-          <h3>Governance track (Anderljung)</h3>
-          <p class="track-note">Named after Markus Anderljung, director of Policy and Research at the Centre for the Governance of AI. Markus did his degree in Natural Sciences at Cambridge.</p>
-          <p>Best suited for those interested in policy, international relations, law, or the political economy of technology—though again, not a strict requirement.</p>
-          <p><strong>What you'll cover:</strong></p>
-          <ul>
-            <li><strong>Technical foundations</strong> — A non-technical introduction to deep learning, LLMs, and RLHF (enough to understand what you're governing)</li>
-            <li><strong>AI risk & timelines</strong> — Arguments for why AI safety is important and urgent</li>
-            <li><strong>China & compute governance</strong> — China's AI strategy, and how controlling compute might shape AI development</li>
-            <li><strong>US policy & responsible scaling</strong> — The US regulatory landscape, and how labs like Anthropic are approaching safety commitments</li>
-            <li><strong>EU & geopolitics</strong> — The EU AI Act, international coordination, and the strategic landscape</li>
-          </ul>
-        </div>
+        <span class="footer-copy">&copy; 2026 CAISH</span>
       </div>
+    </footer>
 
-      <p>Each week, you'll do assigned readings and meet to discuss them with a small cohort. Alongside that:</p>
-      
-      <div class="fellowship-features">
-        <div class="feature">
-          <h4>Talks & Workshops</h4>
-          <p>From researchers at Redwood Research, UK AI Security Institute, Apollo Research and more.</p>
-        </div>
-        <div class="feature">
-          <h4>Career Planning</h4>
-          <p>One-on-one sessions to help you understand your next steps towards an AI safety career.</p>
-        </div>
-        <div class="feature">
-          <h4>ERA Fellows</h4>
-          <p>Chance to interact with ERA:AI and ERA:AIxBiosecurity Fellows, two flagship research programmes based in Cambridge where you can find collaborators.</p>
-        </div>
-      </div>
+    <script>
+      const MobileNav = {
+        init() {
+          const nav = document.getElementById("mobile-nav");
+          const toggle = document.getElementById("nav-toggle");
+          const close = document.getElementById("mobile-nav-close");
 
-      <p>The programme runs <strong>in-person in Cambridge, UK</strong>. Dinner will be provided for each session.<br>Dates for the Lent cohort will be announced soon.</p>
+          toggle?.addEventListener("click", () => nav?.classList.add("active"));
+          close?.addEventListener("click", () =>
+            nav?.classList.remove("active")
+          );
+          nav
+            ?.querySelectorAll("a")
+            .forEach((a) =>
+              a.addEventListener("click", () => nav.classList.remove("active"))
+            );
+        },
+      };
 
-      <h2>Who it's for</h2>
-      <p>You don't need a technical background. You don't need to already understand AI safety. You do need genuine curiosity about how advanced AI could go wrong—and <strong class="highlight">a willingness to take that possibility seriously.</strong></p>
+      const FellowshipModal = {
+        init() {
+          const openButton = document.getElementById("open-fellowship-modal");
+          const closeButton = document.getElementById("close-fellowship-modal");
+          const modal = document.getElementById("fellowship-modal");
+          const iframe = modal?.querySelector("iframe");
 
-      <h3>What we expect from you</h3>
-      <p>We invest significant time and resources into each cohort: talks from leading researchers, one-on-one career support, dinners, and access to the Cambridge AI safety community. In return, we ask that you invest too.</p>
-      
-      <div class="expectations-list">
-        <div class="expectation">
-          <h4>Do the readings</h4>
-          <p>Each week has core readings and optional deeper dives. We expect you to complete the core readings before each session and come ready to discuss them.</p>
-        </div>
-        <div class="expectation">
-          <h4>Show up</h4>
-          <p>Attend the sessions, talks, and workshops we organise.</p>
-        </div>
-        <div class="expectation">
-          <h4>Engage seriously</h4>
-          <p>This is your chance to figure out whether AI safety matters to you, what role you might play, and who else is working on it.</p>
-        </div>
-      </div>
+          if (!openButton || !closeButton || !modal) return;
 
-      <p><strong>If this isn't the right time to commit fully, that's completely fine—apply for a future cohort when you can.</strong> In the meantime, we run public talks and <a href="/socials" class="inline-link">socials</a> throughout the year, and we'd love to have you there.</p>
-
-      <div class="fellowship-application">
-        <h2>Application process</h2>
-        <p>Details are still being finalised and may change. We expect to open applications for Lent Term soon, with more information on the process to follow.</p>
-        <div class="btn-wrapper">
-          <button class="btn-primary" type="button" id="open-fellowship-modal">Expression of Interest</button>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <div class="modal-overlay" id="fellowship-modal" aria-hidden="true">
-    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="fellowship-title">
-      <div class="modal-header">
-        <h3 id="fellowship-title">Alignment Fellowship Expression of Interest</h3>
-        <button class="modal-close" type="button" aria-label="Close form" id="close-fellowship-modal">&times;</button>
-      </div>
-      <div class="modal-body">
-        <iframe data-tally-src="https://tally.so/r/mJQ7yY" title="The Alignment Fellowship -- Expression of Interest" frameborder="0" marginheight="0" marginwidth="0"></iframe>
-      </div>
-    </div>
-  </div>
-  </main>
-
-  <footer>
-    <div class="footer-inner">
-      <div class="footer-legal">
-        Cambridge AI Safety Hub is a project of <a href="https://find-and-update.company-information.service.gov.uk/company/13653958" target="_blank" rel="noopener">Meridian Impact CIC</a>, a Community Interest Company registered at Companies House (company number 13653958).
-      </div>
-      <span class="footer-copy">&copy; 2026 CAISH</span>
-    </div>
-  </footer>
-
-  <script>
-    const MobileNav = {
-      init() {
-        const nav = document.getElementById('mobile-nav');
-        const toggle = document.getElementById('nav-toggle');
-        const close = document.getElementById('mobile-nav-close');
-
-        toggle?.addEventListener('click', () => nav?.classList.add('active'));
-        close?.addEventListener('click', () => nav?.classList.remove('active'));
-        nav?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => nav.classList.remove('active')));
-      }
-    };
-
-    const FellowshipModal = {
-      init() {
-        const openButton = document.getElementById('open-fellowship-modal');
-        const closeButton = document.getElementById('close-fellowship-modal');
-        const modal = document.getElementById('fellowship-modal');
-        const iframe = modal?.querySelector('iframe');
-
-        if (!openButton || !closeButton || !modal) return;
-
-        const openModal = () => {
-          modal.classList.add('active');
-          modal.setAttribute('aria-hidden', 'false');
-          document.body.classList.add('modal-open');
-          if (iframe && !iframe.src) {
-            const tallySrc = iframe.getAttribute('data-tally-src');
-            if (tallySrc) {
-              iframe.src = tallySrc + '?alignLeft=1&hideTitle=1&transparentBackground=1';
+          const openModal = () => {
+            modal.classList.add("active");
+            modal.setAttribute("aria-hidden", "false");
+            document.body.classList.add("modal-open");
+            if (iframe && !iframe.src) {
+              const tallySrc = iframe.getAttribute("data-tally-src");
+              if (tallySrc) {
+                iframe.src =
+                  tallySrc + "?alignLeft=1&hideTitle=1&transparentBackground=1";
+              }
             }
-          }
-        };
+          };
 
-        const closeModal = () => {
-          modal.classList.remove('active');
-          modal.setAttribute('aria-hidden', 'true');
-          document.body.classList.remove('modal-open');
-        };
+          const closeModal = () => {
+            modal.classList.remove("active");
+            modal.setAttribute("aria-hidden", "true");
+            document.body.classList.remove("modal-open");
+          };
 
-        openButton.addEventListener('click', openModal);
-        closeButton.addEventListener('click', closeModal);
-        modal.addEventListener('click', (event) => {
-          if (event.target === modal) {
-            closeModal();
-          }
-        });
+          openButton.addEventListener("click", openModal);
+          closeButton.addEventListener("click", closeModal);
+          modal.addEventListener("click", (event) => {
+            if (event.target === modal) {
+              closeModal();
+            }
+          });
 
-        document.addEventListener('keydown', (event) => {
-          if (event.key === 'Escape' && modal.classList.contains('active')) {
-            closeModal();
-          }
-        });
-      }
-    };
+          document.addEventListener("keydown", (event) => {
+            if (event.key === "Escape" && modal.classList.contains("active")) {
+              closeModal();
+            }
+          });
+        },
+      };
 
-    document.readyState === 'loading'
-      ? document.addEventListener('DOMContentLoaded', () => {
-          MobileNav.init();
-          FellowshipModal.init();
-        })
-      : (MobileNav.init(), FellowshipModal.init());
-  </script>
-  <script async src="https://tally.so/widgets/embed.js"></script>
-</body>
+      /* Scroll-triggered fade-in animations */
+      const ScrollReveal = {
+        init() {
+          const sections = document.querySelectorAll("section, .page-header");
+          sections.forEach((s) => s.classList.add("fade-in-up"));
+
+          const observer = new IntersectionObserver(
+            (entries) => {
+              entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                  entry.target.classList.add("visible");
+                  observer.unobserve(entry.target);
+                }
+              });
+            },
+            { threshold: 0.1, rootMargin: "0px 0px -50px 0px" }
+          );
+
+          sections.forEach((s) => observer.observe(s));
+        },
+      };
+
+      document.readyState === "loading"
+        ? document.addEventListener("DOMContentLoaded", () => {
+            MobileNav.init();
+            FellowshipModal.init();
+            ScrollReveal.init();
+          })
+        : (MobileNav.init(), FellowshipModal.init(), ScrollReveal.init());
+    </script>
+    <script async src="https://tally.so/widgets/embed.js"></script>
+  </body>
 </html>

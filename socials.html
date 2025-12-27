@@ -1,262 +1,342 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="CAISH Socials - Upcoming events and community gatherings at Cambridge AI Safety Hub.">
-  <title>Socials - Cambridge AI Safety Hub</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="CAISH Socials - Upcoming events and community gatherings at Cambridge AI Safety Hub."
+    />
+    <title>Socials - Cambridge AI Safety Hub</title>
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="/images/favicon.png">
-  <link rel="apple-touch-icon" href="/images/favicon.png">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/images/favicon.png" />
+    <link rel="apple-touch-icon" href="/images/favicon.png" />
 
-  <!-- Preload critical resources -->
-  <link rel="preload" href="/styles.css" as="style">
-  <link rel="preload" href="/images/logo.png" as="image">
+    <!-- Preload critical resources -->
+    <link rel="preload" href="/styles.css" as="style" />
+    <link rel="preload" href="/images/logo.png" as="image" />
 
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Space+Mono:wght@400&display=swap" rel="stylesheet">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Space+Mono:wght@400&display=swap"
+      rel="stylesheet"
+    />
 
-  <!-- Styles -->
-  <link rel="stylesheet" href="/styles.css">
-</head>
-<body>
-  <a href="#main-content" class="skip-link">Skip to main content</a>
-  <nav>
-    <div class="nav-inner">
-      <a href="/" aria-label="Home">
-        <img src="/images/logo.png" alt="CAISH" class="logo" width="50" height="50">
-      </a>
-      <ul class="nav-links">
+    <!-- Styles -->
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <nav>
+      <div class="nav-inner">
+        <a href="/" aria-label="Home">
+          <img
+            src="/images/logo.png"
+            alt="CAISH"
+            class="logo"
+            width="50"
+            height="50"
+          />
+        </a>
+        <ul class="nav-links">
+          <li><a href="/fellowship">Alignment Fellowship</a></li>
+          <li><a href="/mars">MARS</a></li>
+          <li><a href="/socials" class="active">Socials</a></li>
+          <li><a href="/about">About</a></li>
+        </ul>
+        <button class="nav-toggle" aria-label="Open menu" id="nav-toggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </nav>
+
+    <div id="mobile-nav" class="mobile-nav">
+      <button
+        class="mobile-nav-close"
+        aria-label="Close menu"
+        id="mobile-nav-close"
+      >
+        &times;
+      </button>
+      <ul>
         <li><a href="/fellowship">Alignment Fellowship</a></li>
         <li><a href="/mars">MARS</a></li>
-        <li><a href="/socials" class="active">Socials</a></li>
+        <li><a href="/socials">Socials</a></li>
         <li><a href="/about">About</a></li>
       </ul>
-      <button class="nav-toggle" aria-label="Open menu" id="nav-toggle">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
     </div>
-  </nav>
 
-  <div id="mobile-nav" class="mobile-nav">
-    <button class="mobile-nav-close" aria-label="Close menu" id="mobile-nav-close">&times;</button>
-    <ul>
-      <li><a href="/fellowship">Alignment Fellowship</a></li>
-      <li><a href="/mars">MARS</a></li>
-      <li><a href="/socials">Socials</a></li>
-      <li><a href="/about">About</a></li>
-    </ul>
-  </div>
+    <main>
+      <section class="page-header" id="main-content">
+        <span class="label">Community</span>
+        <h1>Socials & Events</h1>
+        <p>
+          Join us for regular socials, speaker events, hackathons, and community
+          gatherings. Find companions as you tackle the challenges of AI safety
+          together.
+        </p>
+      </section>
 
-  <main>
-  <section class="page-header" id="main-content">
-    <span class="label">Community</span>
-    <h1>Socials & Events</h1>
-    <p>Join us for regular socials, speaker events, hackathons, and community gatherings. Find companions as you tackle the challenges of AI safety together.</p>
-  </section>
+      <div class="divider"><div class="divider-line"></div></div>
 
-  <div class="divider"><div class="divider-line"></div></div>
-
-  <section class="socials-section">
-    <div class="socials-content">
-      <div id="events-container">
-        <div class="events-loading">
-          <p>Loading events...</p>
+      <section class="socials-section">
+        <div class="socials-content">
+          <div id="events-container">
+            <div class="events-loading">
+              <p>Loading events...</p>
+            </div>
+          </div>
         </div>
+      </section>
+
+      <section class="expectations-section">
+        <h2>Community Expectations</h2>
+        <div class="expectations-list expectations-list--single">
+          <div class="expectation">
+            <h4>By attending our events, you agree to:</h4>
+            <ul>
+              <li>Make room for newcomers and different perspectives.</li>
+              <li>Explain jargon and acronyms.</li>
+              <li>Not interrupt or dominate discussions.</li>
+              <li>Stay open to disagreement.</li>
+              <li>
+                Understand that unwanted sexual attention, aggression, or
+                demeaning behaviour will lead to removal.
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="expectations-footer">
+          <p>
+            If you'd like to reach out about a community health concern please
+            email community (at) caish (dot) org or you can use our
+            <a href="https://airtable.com/appuyIOFhFjVwfLT5/shrCUWMCSPnrZ9VRN"
+              >anonymous form.</a
+            >
+          </p>
+        </div>
+      </section>
+
+      <section class="socials-image">
+        <img
+          src="/images/community.png"
+          alt="CAISH community members at a social event"
+          loading="lazy"
+        />
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-inner">
+        <div class="footer-legal">
+          Cambridge AI Safety Hub is a project of
+          <a
+            href="https://find-and-update.company-information.service.gov.uk/company/13653958"
+            target="_blank"
+            rel="noopener"
+            >Meridian Impact CIC</a
+          >, a Community Interest Company registered at Companies House (company
+          number 13653958).
+        </div>
+        <span class="footer-copy">&copy; 2026 CAISH</span>
       </div>
-    </div>
-  </section>
+    </footer>
 
-  <section class="expectations-section">
-    <h2>Community Expectations</h2>
-    <div class="expectations-list expectations-list--single">
-      <div class="expectation">
-        <h4>By attending our events, you agree to:</h4>
-        <ul>
-          <li>Make room for newcomers and different perspectives.</li>
-          <li>Explain jargon and acronyms.</li>
-          <li>Not interrupt or dominate discussions.</li>
-          <li>Stay open to disagreement.</li>
-          <li>Understand that unwanted sexual attention, aggression, or demeaning behaviour will lead to removal.</li>
-        </ul>
-      </div>
-    </div>
-    <div class="expectations-footer">
-      <p>If you'd like to reach out about a community health concern please email community (at) caish (dot) org or you can use our <a href="https://airtable.com/appuyIOFhFjVwfLT5/shrCUWMCSPnrZ9VRN">anonymous form.</a></p>
-    </div>
-  </section>
+    <script>
+      // Mobile Navigation
+      const MobileNav = {
+        init() {
+          const nav = document.getElementById("mobile-nav");
+          const toggle = document.getElementById("nav-toggle");
+          const close = document.getElementById("mobile-nav-close");
 
-  <section class="socials-image">
-    <img src="/images/community.png" alt="CAISH community members at a social event" loading="lazy">
-  </section>
-  </main>
+          toggle?.addEventListener("click", () => nav?.classList.add("active"));
+          close?.addEventListener("click", () =>
+            nav?.classList.remove("active")
+          );
+          nav
+            ?.querySelectorAll("a")
+            .forEach((a) =>
+              a.addEventListener("click", () => nav.classList.remove("active"))
+            );
+        },
+      };
 
-  <footer>
-    <div class="footer-inner">
-      <div class="footer-legal">
-        Cambridge AI Safety Hub is a project of <a href="https://find-and-update.company-information.service.gov.uk/company/13653958" target="_blank" rel="noopener">Meridian Impact CIC</a>, a Community Interest Company registered at Companies House (company number 13653958).
-      </div>
-      <span class="footer-copy">&copy; 2026 CAISH</span>
-    </div>
-  </footer>
+      // Events Loading
+      const EventsLoader = {
+        dateOpts: {
+          weekday: "long",
+          year: "numeric",
+          month: "long",
+          day: "numeric",
+        },
+        timeOpts: { hour: "2-digit", minute: "2-digit" },
 
-  <script>
-    // Mobile Navigation
-    const MobileNav = {
-      init() {
-        const nav = document.getElementById('mobile-nav');
-        const toggle = document.getElementById('nav-toggle');
-        const close = document.getElementById('mobile-nav-close');
+        escapeHtml(unsafe) {
+          if (typeof unsafe !== "string") return "";
+          return unsafe
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/"/g, "&quot;")
+            .replace(/'/g, "&#039;");
+        },
 
-        toggle?.addEventListener('click', () => nav?.classList.add('active'));
-        close?.addEventListener('click', () => nav?.classList.remove('active'));
-        nav?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => nav.classList.remove('active')));
-      }
-    };
-
-    // Events Loading
-    const EventsLoader = {
-      dateOpts: { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' },
-      timeOpts: { hour: '2-digit', minute: '2-digit' },
-
-      escapeHtml(unsafe) {
-        if (typeof unsafe !== 'string') return '';
-        return unsafe
-          .replace(/&/g, '&amp;')
-          .replace(/</g, '&lt;')
-          .replace(/>/g, '&gt;')
-          .replace(/"/g, '&quot;')
-          .replace(/'/g, '&#039;');
-      },
-
-      sanitizeUrl(url) {
-        if (!url || typeof url !== 'string') return '#';
-        try {
-          const parsed = new URL(url, window.location.origin);
-          return ['http:', 'https:'].includes(parsed.protocol) ? url : '#';
-        } catch {
-          return '#';
-        }
-      },
-
-      async init() {
-        const container = document.getElementById('events-container');
-        if (!container) return;
-
-        try {
-          const response = await fetch('/.netlify/functions/events');
-          const data = await response.json();
-
-          if (!response.ok) {
-            throw new Error(data.error || 'Failed to load events');
+        sanitizeUrl(url) {
+          if (!url || typeof url !== "string") return "#";
+          try {
+            const parsed = new URL(url, window.location.origin);
+            return ["http:", "https:"].includes(parsed.protocol) ? url : "#";
+          } catch {
+            return "#";
           }
+        },
 
-          this.renderEvents(container, data.events);
-        } catch (error) {
-          console.error('Error loading events:', error);
-          container.innerHTML = `
+        async init() {
+          const container = document.getElementById("events-container");
+          if (!container) return;
+
+          try {
+            const response = await fetch("/.netlify/functions/events");
+            const data = await response.json();
+
+            if (!response.ok) {
+              throw new Error(data.error || "Failed to load events");
+            }
+
+            this.renderEvents(container, data.events);
+          } catch (error) {
+            console.error("Error loading events:", error);
+            container.innerHTML = `
             <div class="events-empty">
               <p>Unable to load events at this time. Please try again later.</p>
             </div>
           `;
-        }
-      },
+          }
+        },
 
-      formatDate(dateString) {
-        return new Date(dateString).toLocaleDateString('en-GB', this.dateOpts);
-      },
+        formatDate(dateString) {
+          return new Date(dateString).toLocaleDateString(
+            "en-GB",
+            this.dateOpts
+          );
+        },
 
-      formatTime(dateString) {
-        return new Date(dateString).toLocaleTimeString('en-GB', this.timeOpts);
-      },
+        formatTime(dateString) {
+          return new Date(dateString).toLocaleTimeString(
+            "en-GB",
+            this.timeOpts
+          );
+        },
 
-      isUpcoming(dateString) {
-        return new Date(dateString) >= new Date();
-      },
+        isUpcoming(dateString) {
+          return new Date(dateString) >= new Date();
+        },
 
-      renderEvents(container, events) {
-        if (!events || events.length === 0) {
-          container.innerHTML = `
+        renderEvents(container, events) {
+          if (!events || events.length === 0) {
+            container.innerHTML = `
             <div class="events-empty">
               <p>No upcoming events at the moment. Check back soon!</p>
             </div>
           `;
-          return;
-        }
+            return;
+          }
 
-        // Separate upcoming and past events (single pass)
-        const now = new Date();
-        const upcoming = [];
-        const past = [];
-        for (const e of events) {
-          const evt = e.event || e;
-          const startTime = new Date(evt.start_at || evt.start_time);
-          (startTime >= now ? upcoming : past).push(e);
-        }
+          // Separate upcoming and past events (single pass)
+          const now = new Date();
+          const upcoming = [];
+          const past = [];
+          for (const e of events) {
+            const evt = e.event || e;
+            const startTime = new Date(evt.start_at || evt.start_time);
+            (startTime >= now ? upcoming : past).push(e);
+          }
 
-        let html = '';
-        const rsvpNote = '<p class="events-rsvp">Please RSVP via Luma so we can plan for how many people are coming.</p>';
+          let html = "";
+          const rsvpNote =
+            '<p class="events-rsvp">Please RSVP via Luma so we can plan for how many people are coming.</p>';
 
-        if (upcoming.length > 0) {
-          html += '<h2>Upcoming Events</h2>';
-          html += rsvpNote;
-          html += '<div class="events-grid">';
-          upcoming.forEach(entry => {
-            html += this.renderEventCard(entry, false);
-          });
-          html += '</div>';
-        }
+          if (upcoming.length > 0) {
+            html += "<h2>Upcoming Events</h2>";
+            html += rsvpNote;
+            html += '<div class="events-grid">';
+            upcoming.forEach((entry) => {
+              html += this.renderEventCard(entry, false);
+            });
+            html += "</div>";
+          }
 
-        if (past.length > 0) {
-          html += '<h2 class="past-events-heading">Recent Events</h2>';
-          html += '<div class="events-grid past-events">';
-          past.forEach(entry => {
-            html += this.renderEventCard(entry, true);
-          });
-          html += '</div>';
-        }
+          if (past.length > 0) {
+            html += '<h2 class="past-events-heading">Recent Events</h2>';
+            html += '<div class="events-grid past-events">';
+            past.forEach((entry) => {
+              html += this.renderEventCard(entry, true);
+            });
+            html += "</div>";
+          }
 
-        if (upcoming.length === 0 && past.length === 0) {
-          html = `
+          if (upcoming.length === 0 && past.length === 0) {
+            html = `
             <div class="events-empty">
               <p>No events to display. Check back soon!</p>
             </div>
           `;
-        }
+          }
 
-        container.innerHTML = html;
-      },
+          container.innerHTML = html;
+        },
 
-      renderEventCard(entry, isPast) {
-        const event = entry.event || entry;
-        const name = event.name || 'Untitled Event';
-        const description = event.description || '';
-        const startAt = event.start_at || event.start_time;
-        const endAt = event.end_at || event.end_time;
-        const rawUrl = event.url || (event.api_id ? `https://lu.ma/${event.api_id}` : '#');
-        const url = this.sanitizeUrl(rawUrl);
-        const coverUrl = event.cover_url || event.cover_image_url || '';
-        const location = event.geo_address_info?.city || event.location || 'Cambridge';
+        renderEventCard(entry, isPast) {
+          const event = entry.event || entry;
+          const name = event.name || "Untitled Event";
+          const description = event.description || "";
+          const startAt = event.start_at || event.start_time;
+          const endAt = event.end_at || event.end_time;
+          const rawUrl =
+            event.url || (event.api_id ? `https://lu.ma/${event.api_id}` : "#");
+          const url = this.sanitizeUrl(rawUrl);
+          const coverUrl = event.cover_url || event.cover_image_url || "";
+          const location =
+            event.geo_address_info?.city || event.location || "Cambridge";
 
-        const dateStr = this.formatDate(startAt);
-        const timeStr = this.formatTime(startAt);
-        const endTimeStr = endAt ? this.formatTime(endAt) : '';
+          const dateStr = this.formatDate(startAt);
+          const timeStr = this.formatTime(startAt);
+          const endTimeStr = endAt ? this.formatTime(endAt) : "";
 
-        return `
-          <a href="${this.escapeHtml(url)}" target="_blank" rel="noopener" class="event-card ${isPast ? 'past' : ''}">
-            ${coverUrl ? `<div class="event-cover"><img src="${this.escapeHtml(coverUrl)}" alt="${this.escapeHtml(name)}" loading="lazy"></div>` : ''}
+          return `
+          <a href="${this.escapeHtml(
+            url
+          )}" target="_blank" rel="noopener" class="event-card ${
+            isPast ? "past" : ""
+          }">
+            ${
+              coverUrl
+                ? `<div class="event-cover"><img src="${this.escapeHtml(
+                    coverUrl
+                  )}" alt="${this.escapeHtml(name)}" loading="lazy"></div>`
+                : ""
+            }
             <div class="event-content">
               <div class="event-date">
                 <span class="event-day">${this.escapeHtml(dateStr)}</span>
-                <span class="event-time">${this.escapeHtml(timeStr)}${endTimeStr ? ' - ' + this.escapeHtml(endTimeStr) : ''}</span>
+                <span class="event-time">${this.escapeHtml(timeStr)}${
+            endTimeStr ? " - " + this.escapeHtml(endTimeStr) : ""
+          }</span>
               </div>
               <h3 class="event-title">${this.escapeHtml(name)}</h3>
-              ${description ? `<p class="event-description">${this.escapeHtml(description.substring(0, 150))}${description.length > 150 ? '...' : ''}</p>` : ''}
+              ${
+                description
+                  ? `<p class="event-description">${this.escapeHtml(
+                      description.substring(0, 150)
+                    )}${description.length > 150 ? "..." : ""}</p>`
+                  : ""
+              }
               <div class="event-meta">
                 <span class="event-location">${this.escapeHtml(location)}</span>
                 <span class="event-link">View on Luma</span>
@@ -264,19 +344,43 @@
             </div>
           </a>
         `;
-      }
-    };
+        },
+      };
 
-    // Initialize
-    document.readyState === 'loading'
-      ? document.addEventListener('DOMContentLoaded', () => {
-          MobileNav.init();
-          EventsLoader.init();
-        })
-      : (() => {
-          MobileNav.init();
-          EventsLoader.init();
-        })();
-  </script>
-</body>
+      /* Scroll-triggered fade-in animations */
+      const ScrollReveal = {
+        init() {
+          const sections = document.querySelectorAll("section, .page-header");
+          sections.forEach((s) => s.classList.add("fade-in-up"));
+
+          const observer = new IntersectionObserver(
+            (entries) => {
+              entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                  entry.target.classList.add("visible");
+                  observer.unobserve(entry.target);
+                }
+              });
+            },
+            { threshold: 0.1, rootMargin: "0px 0px -50px 0px" }
+          );
+
+          sections.forEach((s) => observer.observe(s));
+        },
+      };
+
+      // Initialize
+      document.readyState === "loading"
+        ? document.addEventListener("DOMContentLoaded", () => {
+            MobileNav.init();
+            EventsLoader.init();
+            ScrollReveal.init();
+          })
+        : (() => {
+            MobileNav.init();
+            EventsLoader.init();
+            ScrollReveal.init();
+          })();
+    </script>
+  </body>
 </html>

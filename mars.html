@@ -1,186 +1,311 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="MARS - Mentorship for Alignment Researchers programme at Cambridge AI Safety Hub.">
-  <title>MARS Programme | Cambridge AI Safety Hub</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="MARS - Mentorship for Alignment Researchers programme at Cambridge AI Safety Hub."
+    />
+    <title>MARS Programme | Cambridge AI Safety Hub</title>
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="/images/favicon.png">
-  <link rel="apple-touch-icon" href="/images/favicon.png">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/images/favicon.png" />
+    <link rel="apple-touch-icon" href="/images/favicon.png" />
 
-  <!-- Preload critical resources -->
-  <link rel="preload" href="/styles.css" as="style">
-  <link rel="preload" href="/images/logo.png" as="image">
+    <!-- Preload critical resources -->
+    <link rel="preload" href="/styles.css" as="style" />
+    <link rel="preload" href="/images/logo.png" as="image" />
 
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Space+Mono:wght@400&display=swap" rel="stylesheet">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Space+Mono:wght@400&display=swap"
+      rel="stylesheet"
+    />
 
-  <!-- Styles -->
-  <link rel="stylesheet" href="/styles.css">
-</head>
-<body>
-  <a href="#main-content" class="skip-link">Skip to main content</a>
-  <nav>
-    <div class="nav-inner">
-      <a href="/" aria-label="Home">
-        <img src="/images/logo.png" alt="CAISH" class="logo" width="50" height="50">
-      </a>
-      <ul class="nav-links">
+    <!-- Styles -->
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <nav>
+      <div class="nav-inner">
+        <a href="/" aria-label="Home">
+          <img
+            src="/images/logo.png"
+            alt="CAISH"
+            class="logo"
+            width="50"
+            height="50"
+          />
+        </a>
+        <ul class="nav-links">
+          <li><a href="/fellowship">Alignment Fellowship</a></li>
+          <li><a href="/mars" class="active">MARS</a></li>
+          <li><a href="/socials">Socials</a></li>
+          <li><a href="/about">About</a></li>
+        </ul>
+        <button class="nav-toggle" aria-label="Open menu" id="nav-toggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </nav>
+
+    <div id="mobile-nav" class="mobile-nav">
+      <button
+        class="mobile-nav-close"
+        aria-label="Close menu"
+        id="mobile-nav-close"
+      >
+        &times;
+      </button>
+      <ul>
         <li><a href="/fellowship">Alignment Fellowship</a></li>
         <li><a href="/mars" class="active">MARS</a></li>
         <li><a href="/socials">Socials</a></li>
         <li><a href="/about">About</a></li>
       </ul>
-      <button class="nav-toggle" aria-label="Open menu" id="nav-toggle">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
     </div>
-  </nav>
 
-  <div id="mobile-nav" class="mobile-nav">
-    <button class="mobile-nav-close" aria-label="Close menu" id="mobile-nav-close">&times;</button>
-    <ul>
-      <li><a href="/fellowship">Alignment Fellowship</a></li>
-      <li><a href="/mars" class="active">MARS</a></li>
-      <li><a href="/socials">Socials</a></li>
-      <li><a href="/about">About</a></li>
-    </ul>
-  </div>
-
-  <main>
-  <div class="mars-hero-image" id="main-content">
-    <img src="/images/hero.png" alt="Figure standing on Mars landscape" loading="lazy">
-  </div>
-
-  <section class="page-header mars-header">
-    <h1>MARS Programme</h1>
-    <p class="mars-tagline"><em>Mentorship for Alignment Researchers</em></p>
-  </section>
-
-  <section class="mars-section">
-    <div class="mars-content">
-
-      <p>The window to prepare for AI's most serious risks is limited, and we need more people working on safety research—across disciplines and career stages. But breaking into the field is hard, especially alongside study or a full-time job.</p>
-      <p>MARS connects aspiring researchers with experienced mentors for part-time, project-based work. Over a few months, you'll build practical research skills and work on problems that matter, while figuring out whether this is the right path for you.</p>
-      <p>MARS 5.0 runs in spring 2025, starting with a two-week in-person kickoff in Cambridge (accommodation and meals provided), then continuing remotely with your mentor.</p>
-
-      <h2>How it works</h2>
-      
-      <div class="mars-journey">
-        <div class="journey-card">
-          <span class="journey-number">1</span>
-          <h4>Applying</h4>
-          <p>You'll apply to work with a specific mentor on a research question. We review applications alongside the mentor, and if you're a strong fit, there may be a short interview. Once accepted, we'll help arrange travel to Cambridge for the kickoff week.</p>
-        </div>
-        <div class="journey-arrow">→</div>
-        <div class="journey-card">
-          <span class="journey-number">2</span>
-          <h4>Kickoff</h4>
-          <p>Two weeks in Cambridge with your mentor, fellow participants, and the CAISH team. You'll scope your research project, build momentum, and leave with a clear direction and the relationships to sustain it.</p>
-        </div>
-        <div class="journey-arrow">→</div>
-        <div class="journey-card">
-          <span class="journey-number">3</span>
-          <h4>Remote phase</h4>
-          <p>You'll continue working remotely, around 8 hours per week, with regular check-ins from your mentor and a research manager. We will cover compute costs for your project.</p>
-        </div>
-        <div class="journey-arrow">→</div>
-        <div class="journey-card">
-          <span class="journey-number">4</span>
-          <h4>Final presentation & output</h4>
-          <p>At the end of the programme, you'll present your work. We expect a concrete output: a paper, blog post, or other form that shares your research with the field.</p>
-        </div>
-        <div class="journey-arrow">→</div>
-        <div class="journey-card">
-          <span class="journey-number">5</span>
-          <h4>What comes next</h4>
-          <p>We provide career support for full-time AI safety roles. Strong participants are invited to apply for Meridian's visiting researcher programme or accelerator week, where you can seek grants to continue your work.</p>
-        </div>
+    <main>
+      <div class="mars-hero-image" id="main-content">
+        <img
+          src="/images/hero.png"
+          alt="Figure standing on Mars landscape"
+          loading="lazy"
+        />
       </div>
 
-      <div class="mars-working-image">
-        <img src="/images/mars-working.png" alt="MARS mentees collaborating on AI safety research" loading="lazy">
-      </div>
+      <section class="page-header mars-header">
+        <h1>MARS Programme</h1>
+        <p class="mars-tagline">
+          <em>Mentorship for Alignment Researchers</em>
+        </p>
+      </section>
 
-      <h2>Previous Mentors</h2>
-      <p>Our mentees have worked with researchers from leading AI safety organisations and academia.</p>
-      
-      <div class="mentors-grid">
-        <div class="mentor">
-          <img src="/images/tracy.png" alt="Tyler Tracy" class="mentor-photo" loading="lazy">
-          <h4>Tyler Tracy</h4>
-          <p class="mentor-org">Redwood Research</p>
-          <p class="mentor-area">AI Control</p>
-        </div>
-        <div class="mentor">
-          <img src="/images/weil.png" alt="Gabriel Weil" class="mentor-photo" loading="lazy">
-          <h4>Gabriel Weil</h4>
-          <p class="mentor-org">Touro University Law Center / LawAI</p>
-          <p class="mentor-area">AI Liability and Insurance</p>
-        </div>
-        <div class="mentor">
-          <img src="/images/logan.png" alt="Logan Riggs-Smith" class="mentor-photo" loading="lazy">
-          <h4>Logan Riggs-Smith</h4>
-          <p class="mentor-org">Independent</p>
-          <p class="mentor-area">Mechanistic Interpretability</p>
-        </div>
-        <div class="mentor">
-          <img src="/images/gentzel.png" alt="Matthew Gentzel" class="mentor-photo" loading="lazy">
-          <h4>Matthew Gentzel</h4>
-          <p class="mentor-org">Longview Philanthropy</p>
-          <p class="mentor-area">AGI Preparedness</p>
-        </div>
-        <div class="mentor">
-          <img src="/images/erich.png" alt="Erich Grunewald" class="mentor-photo" loading="lazy">
-          <h4>Erich Grunewald</h4>
-          <p class="mentor-org">Institute for AI Policy and Strategy</p>
-          <p class="mentor-area">Compute Governance</p>
-        </div>
-        <div class="mentor">
-          <img src="/images/kola.png" alt="Kola Ayonrinde" class="mentor-photo" loading="lazy">
-          <h4>Kola Ayonrinde</h4>
-          <p class="mentor-org">UK AI Security Institute</p>
-          <p class="mentor-area">Mechanistic Interpretability</p>
-        </div>
-      </div>
+      <section class="mars-section">
+        <div class="mars-content">
+          <p>
+            The window to prepare for AI's most serious risks is limited, and we
+            need more people working on safety research—across disciplines and
+            career stages. But breaking into the field is hard, especially
+            alongside study or a full-time job.
+          </p>
+          <p>
+            MARS connects aspiring researchers with experienced mentors for
+            part-time, project-based work. Over a few months, you'll build
+            practical research skills and work on problems that matter, while
+            figuring out whether this is the right path for you.
+          </p>
+          <p>
+            MARS 5.0 runs in spring 2025, starting with a two-week in-person
+            kickoff in Cambridge (accommodation and meals provided), then
+            continuing remotely with your mentor.
+          </p>
 
-      <h2>Research from MARS</h2>
-      
-      <div class="research-grid">
-        <a href="https://arxiv.org/pdf/2406.11779" target="_blank" rel="noopener" class="research-card">
-          <div class="research-header">
-            <span class="research-cohort">MARS 1.0</span>
-            <span class="research-type">Paper</span>
+          <h2>How it works</h2>
+
+          <div class="mars-journey">
+            <div class="journey-card">
+              <span class="journey-number">1</span>
+              <h4>Applying</h4>
+              <p>
+                You'll apply to work with a specific mentor on a research
+                question. We review applications alongside the mentor, and if
+                you're a strong fit, there may be a short interview. Once
+                accepted, we'll help arrange travel to Cambridge for the kickoff
+                week.
+              </p>
+            </div>
+            <div class="journey-arrow">→</div>
+            <div class="journey-card">
+              <span class="journey-number">2</span>
+              <h4>Kickoff</h4>
+              <p>
+                Two weeks in Cambridge with your mentor, fellow participants,
+                and the CAISH team. You'll scope your research project, build
+                momentum, and leave with a clear direction and the relationships
+                to sustain it.
+              </p>
+            </div>
+            <div class="journey-arrow">→</div>
+            <div class="journey-card">
+              <span class="journey-number">3</span>
+              <h4>Remote phase</h4>
+              <p>
+                You'll continue working remotely, around 8 hours per week, with
+                regular check-ins from your mentor and a research manager. We
+                will cover compute costs for your project.
+              </p>
+            </div>
+            <div class="journey-arrow">→</div>
+            <div class="journey-card">
+              <span class="journey-number">4</span>
+              <h4>Final presentation & output</h4>
+              <p>
+                At the end of the programme, you'll present your work. We expect
+                a concrete output: a paper, blog post, or other form that shares
+                your research with the field.
+              </p>
+            </div>
+            <div class="journey-arrow">→</div>
+            <div class="journey-card">
+              <span class="journey-number">5</span>
+              <h4>What comes next</h4>
+              <p>
+                We provide career support for full-time AI safety roles. Strong
+                participants are invited to apply for Meridian's visiting
+                researcher programme or accelerator week, where you can seek
+                grants to continue your work.
+              </p>
+            </div>
           </div>
-          <h4>Compact Proofs of Model Performance via Mechanistic Interpretability</h4>
-          <p class="research-authors">Jason Gross, Rajashree Agrawal, Thomas Kwa, <span class="author-highlight">Euan Ong</span>, Chun Hei Yip, Alex Gibson, Soufiane Noubir, Lawrence Chan</p>
-        </a>
-        <a href="https://arxiv.org/pdf/2512.07667" target="_blank" rel="noopener" class="research-card">
-          <div class="research-header">
-            <span class="research-cohort">MARS 3.0</span>
-            <span class="research-type">Paper</span>
+
+          <div class="mars-working-image">
+            <img
+              src="/images/mars-working.png"
+              alt="MARS mentees collaborating on AI safety research"
+              loading="lazy"
+            />
           </div>
-          <h4>Depth-Wise Activation Steering for Honest Language Models</h4>
-          <p class="research-authors">Gracjan Góral, Marysia Winkels, Steven Basart</p>
-        </a>
-        <a href="https://openreview.net/pdf?id=hVR3023UP2" target="_blank" rel="noopener" class="research-card">
-          <div class="research-header">
-            <span class="research-cohort">MARS 3.0</span>
-            <span class="research-type">Paper</span>
+
+          <h2>Previous Mentors</h2>
+          <p>
+            Our mentees have worked with researchers from leading AI safety
+            organisations and academia.
+          </p>
+
+          <div class="mentors-grid">
+            <div class="mentor">
+              <img
+                src="/images/tracy.png"
+                alt="Tyler Tracy"
+                class="mentor-photo"
+                loading="lazy"
+              />
+              <h4>Tyler Tracy</h4>
+              <p class="mentor-org">Redwood Research</p>
+              <p class="mentor-area">AI Control</p>
+            </div>
+            <div class="mentor">
+              <img
+                src="/images/weil.png"
+                alt="Gabriel Weil"
+                class="mentor-photo"
+                loading="lazy"
+              />
+              <h4>Gabriel Weil</h4>
+              <p class="mentor-org">Touro University Law Center / LawAI</p>
+              <p class="mentor-area">AI Liability and Insurance</p>
+            </div>
+            <div class="mentor">
+              <img
+                src="/images/logan.png"
+                alt="Logan Riggs-Smith"
+                class="mentor-photo"
+                loading="lazy"
+              />
+              <h4>Logan Riggs-Smith</h4>
+              <p class="mentor-org">Independent</p>
+              <p class="mentor-area">Mechanistic Interpretability</p>
+            </div>
+            <div class="mentor">
+              <img
+                src="/images/gentzel.png"
+                alt="Matthew Gentzel"
+                class="mentor-photo"
+                loading="lazy"
+              />
+              <h4>Matthew Gentzel</h4>
+              <p class="mentor-org">Longview Philanthropy</p>
+              <p class="mentor-area">AGI Preparedness</p>
+            </div>
+            <div class="mentor">
+              <img
+                src="/images/erich.png"
+                alt="Erich Grunewald"
+                class="mentor-photo"
+                loading="lazy"
+              />
+              <h4>Erich Grunewald</h4>
+              <p class="mentor-org">Institute for AI Policy and Strategy</p>
+              <p class="mentor-area">Compute Governance</p>
+            </div>
+            <div class="mentor">
+              <img
+                src="/images/kola.png"
+                alt="Kola Ayonrinde"
+                class="mentor-photo"
+                loading="lazy"
+              />
+              <h4>Kola Ayonrinde</h4>
+              <p class="mentor-org">UK AI Security Institute</p>
+              <p class="mentor-area">Mechanistic Interpretability</p>
+            </div>
           </div>
-          <h4>Combining Cost-Constrained Runtime Monitors for AI Safety</h4>
-          <p class="research-authors">Tim Hua, James Baskerville, Henri Lemoine, Mia Hopman, Aryan Bhatt, Tyler Tracy</p>
-          <p class="research-status">Accepted to NeurIPS 2025</p>
-        </a>
-      </div>
-      
-<!--
+
+          <h2>Research from MARS</h2>
+
+          <div class="research-grid">
+            <a
+              href="https://arxiv.org/pdf/2406.11779"
+              target="_blank"
+              rel="noopener"
+              class="research-card"
+            >
+              <div class="research-header">
+                <span class="research-cohort">MARS 1.0</span>
+                <span class="research-type">Paper</span>
+              </div>
+              <h4>
+                Compact Proofs of Model Performance via Mechanistic
+                Interpretability
+              </h4>
+              <p class="research-authors">
+                Jason Gross, Rajashree Agrawal, Thomas Kwa,
+                <span class="author-highlight">Euan Ong</span>, Chun Hei Yip,
+                Alex Gibson, Soufiane Noubir, Lawrence Chan
+              </p>
+            </a>
+            <a
+              href="https://arxiv.org/pdf/2512.07667"
+              target="_blank"
+              rel="noopener"
+              class="research-card"
+            >
+              <div class="research-header">
+                <span class="research-cohort">MARS 3.0</span>
+                <span class="research-type">Paper</span>
+              </div>
+              <h4>Depth-Wise Activation Steering for Honest Language Models</h4>
+              <p class="research-authors">
+                Gracjan Góral, Marysia Winkels, Steven Basart
+              </p>
+            </a>
+            <a
+              href="https://openreview.net/pdf?id=hVR3023UP2"
+              target="_blank"
+              rel="noopener"
+              class="research-card"
+            >
+              <div class="research-header">
+                <span class="research-cohort">MARS 3.0</span>
+                <span class="research-type">Paper</span>
+              </div>
+              <h4>Combining Cost-Constrained Runtime Monitors for AI Safety</h4>
+              <p class="research-authors">
+                Tim Hua, James Baskerville, Henri Lemoine, Mia Hopman, Aryan
+                Bhatt, Tyler Tracy
+              </p>
+              <p class="research-status">Accepted to NeurIPS 2025</p>
+            </a>
+          </div>
+
+          <!--
       <h2>Alumni Spotlights</h2>
       
       <div class="alumni-grid">
@@ -205,103 +330,162 @@
       </div>
 -->
 
-      <div class="mars-application">
-        <h2>MARS 5.0</h2>
-        <p class="application-notice">Applications open soon.</p>
-        <p>Sign up to be notified when applications open for the next cohort.</p>
-        <div class="btn-wrapper">
-          <button class="btn-primary" type="button" id="open-eoi-modal">Expression of Interest</button>
+          <div class="mars-application">
+            <h2>MARS 5.0</h2>
+            <p class="application-notice">Applications open soon.</p>
+            <p>
+              Sign up to be notified when applications open for the next cohort.
+            </p>
+            <div class="btn-wrapper">
+              <button class="btn-primary" type="button" id="open-eoi-modal">
+                Expression of Interest
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="modal-overlay" id="eoi-modal" aria-hidden="true">
+        <div
+          class="modal"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="eoi-title"
+        >
+          <div class="modal-header">
+            <h3 id="eoi-title">MARS 5.0 Expression of Interest</h3>
+            <button
+              class="modal-close"
+              type="button"
+              aria-label="Close form"
+              id="close-eoi-modal"
+            >
+              &times;
+            </button>
+          </div>
+          <div class="modal-body">
+            <iframe
+              data-tally-src="https://tally.so/r/wdOGeK"
+              title="MARS 5.0 - Expression of Interest"
+              frameborder="0"
+              marginheight="0"
+              marginwidth="0"
+            ></iframe>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </main>
 
-  <div class="modal-overlay" id="eoi-modal" aria-hidden="true">
-    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="eoi-title">
-      <div class="modal-header">
-        <h3 id="eoi-title">MARS 5.0 Expression of Interest</h3>
-        <button class="modal-close" type="button" aria-label="Close form" id="close-eoi-modal">&times;</button>
+    <footer>
+      <div class="footer-inner">
+        <div class="footer-legal">
+          Cambridge AI Safety Hub is a project of
+          <a
+            href="https://find-and-update.company-information.service.gov.uk/company/13653958"
+            target="_blank"
+            rel="noopener"
+            >Meridian Impact CIC</a
+          >, a Community Interest Company registered at Companies House (company
+          number 13653958).
+        </div>
+        <span class="footer-copy">&copy; 2026 CAISH</span>
       </div>
-      <div class="modal-body">
-        <iframe data-tally-src="https://tally.so/r/wdOGeK" title="MARS 5.0 - Expression of Interest" frameborder="0" marginheight="0" marginwidth="0"></iframe>
-      </div>
-    </div>
-  </div>
-  </main>
+    </footer>
 
-  <footer>
-    <div class="footer-inner">
-      <div class="footer-legal">
-        Cambridge AI Safety Hub is a project of <a href="https://find-and-update.company-information.service.gov.uk/company/13653958" target="_blank" rel="noopener">Meridian Impact CIC</a>, a Community Interest Company registered at Companies House (company number 13653958).
-      </div>
-      <span class="footer-copy">&copy; 2026 CAISH</span>
-    </div>
-  </footer>
+    <script>
+      const MobileNav = {
+        init() {
+          const nav = document.getElementById("mobile-nav");
+          const toggle = document.getElementById("nav-toggle");
+          const close = document.getElementById("mobile-nav-close");
 
-  <script>
-    const MobileNav = {
-      init() {
-        const nav = document.getElementById('mobile-nav');
-        const toggle = document.getElementById('nav-toggle');
-        const close = document.getElementById('mobile-nav-close');
+          toggle?.addEventListener("click", () => nav?.classList.add("active"));
+          close?.addEventListener("click", () =>
+            nav?.classList.remove("active")
+          );
+          nav
+            ?.querySelectorAll("a")
+            .forEach((a) =>
+              a.addEventListener("click", () => nav.classList.remove("active"))
+            );
+        },
+      };
 
-        toggle?.addEventListener('click', () => nav?.classList.add('active'));
-        close?.addEventListener('click', () => nav?.classList.remove('active'));
-        nav?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => nav.classList.remove('active')));
-      }
-    };
+      const MarsModal = {
+        init() {
+          const openButton = document.getElementById("open-eoi-modal");
+          const closeButton = document.getElementById("close-eoi-modal");
+          const modal = document.getElementById("eoi-modal");
+          const iframe = modal?.querySelector("iframe");
 
-    const MarsModal = {
-      init() {
-        const openButton = document.getElementById('open-eoi-modal');
-        const closeButton = document.getElementById('close-eoi-modal');
-        const modal = document.getElementById('eoi-modal');
-        const iframe = modal?.querySelector('iframe');
+          if (!openButton || !closeButton || !modal) return;
 
-        if (!openButton || !closeButton || !modal) return;
-
-        const openModal = () => {
-          modal.classList.add('active');
-          modal.setAttribute('aria-hidden', 'false');
-          document.body.classList.add('modal-open');
-          // Load the Tally form when modal opens
-          if (iframe && !iframe.src) {
-            const tallySrc = iframe.getAttribute('data-tally-src');
-            if (tallySrc) {
-              iframe.src = tallySrc + '?alignLeft=1&hideTitle=1&transparentBackground=1';
+          const openModal = () => {
+            modal.classList.add("active");
+            modal.setAttribute("aria-hidden", "false");
+            document.body.classList.add("modal-open");
+            // Load the Tally form when modal opens
+            if (iframe && !iframe.src) {
+              const tallySrc = iframe.getAttribute("data-tally-src");
+              if (tallySrc) {
+                iframe.src =
+                  tallySrc + "?alignLeft=1&hideTitle=1&transparentBackground=1";
+              }
             }
-          }
-        };
+          };
 
-        const closeModal = () => {
-          modal.classList.remove('active');
-          modal.setAttribute('aria-hidden', 'true');
-          document.body.classList.remove('modal-open');
-        };
+          const closeModal = () => {
+            modal.classList.remove("active");
+            modal.setAttribute("aria-hidden", "true");
+            document.body.classList.remove("modal-open");
+          };
 
-        openButton.addEventListener('click', openModal);
-        closeButton.addEventListener('click', closeModal);
-        modal.addEventListener('click', (event) => {
-          if (event.target === modal) {
-            closeModal();
-          }
-        });
+          openButton.addEventListener("click", openModal);
+          closeButton.addEventListener("click", closeModal);
+          modal.addEventListener("click", (event) => {
+            if (event.target === modal) {
+              closeModal();
+            }
+          });
 
-        document.addEventListener('keydown', (event) => {
-          if (event.key === 'Escape' && modal.classList.contains('active')) {
-            closeModal();
-          }
-        });
-      }
-    };
+          document.addEventListener("keydown", (event) => {
+            if (event.key === "Escape" && modal.classList.contains("active")) {
+              closeModal();
+            }
+          });
+        },
+      };
 
-    document.readyState === 'loading'
-      ? document.addEventListener('DOMContentLoaded', () => {
-          MobileNav.init();
-          MarsModal.init();
-        })
-      : (MobileNav.init(), MarsModal.init());
-  </script>
-  <script async src="https://tally.so/widgets/embed.js"></script>
-</body>
+      /* Scroll-triggered fade-in animations */
+      const ScrollReveal = {
+        init() {
+          const sections = document.querySelectorAll("section, .page-header");
+          sections.forEach((s) => s.classList.add("fade-in-up"));
+
+          const observer = new IntersectionObserver(
+            (entries) => {
+              entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                  entry.target.classList.add("visible");
+                  observer.unobserve(entry.target);
+                }
+              });
+            },
+            { threshold: 0.1, rootMargin: "0px 0px -50px 0px" }
+          );
+
+          sections.forEach((s) => observer.observe(s));
+        },
+      };
+
+      document.readyState === "loading"
+        ? document.addEventListener("DOMContentLoaded", () => {
+            MobileNav.init();
+            MarsModal.init();
+            ScrollReveal.init();
+          })
+        : (MobileNav.init(), MarsModal.init(), ScrollReveal.init());
+    </script>
+    <script async src="https://tally.so/widgets/embed.js"></script>
+  </body>
 </html>
