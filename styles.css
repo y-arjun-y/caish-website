@@ -49,7 +49,7 @@
   body {
     font-family: var(--font-mono);
     font-weight: 400;
-    background: linear-gradient(180deg, #fbfaf7 0%, #f3efe9 100%);
+    background: #ffffff;
     color: var(--black);
     line-height: 1.8;
     letter-spacing: -0.01em;
@@ -177,7 +177,7 @@
     left: 0;
     right: 0;
     z-index: 100;
-    background: rgba(248, 247, 244, 0.92);
+    background: rgba(255, 255, 255, 0.92);
     border-bottom: 1px solid rgba(224, 224, 224, 0.7);
     backdrop-filter: blur(12px);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.03);
@@ -1818,7 +1818,7 @@
     margin: 0 auto;
     border-top: 1px solid var(--light-grey);
     margin-top: 2rem;
-    background: rgba(248, 247, 244, 0.5);
+    background: rgba(255, 255, 255, 0.5);
   }
   
   .footer-inner {
